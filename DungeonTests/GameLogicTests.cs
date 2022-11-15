@@ -10,11 +10,14 @@ namespace DungeonTests
         [TestMethod]
         public void Party_CanGetQuestFromNPC()
         {
-            game.CurrentLevel = Level.LoadFile("testLevel.map");
+            game.Load("testLevel.map");
+            Assert.AreEqual(0, game.Quests.Count);
+
             var npc = game.Characters["QuestNPC"];
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-            var dialogue = game.InteractWith(npc) as Dialogue;
-            dialogue.ChooseOption(1);
+            game.State = game.InteractWith(npc);
+            game.State = (game.State as Dialogue).ChooseOption(1);
+
             Assert.AreEqual(1, game.Quests.Count);
         }
     }

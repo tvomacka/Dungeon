@@ -8,7 +8,7 @@ namespace Dungeon.GameLogic
 {
     public class Dialogue : IInteraction
     {
-        public void ChooseOption(int v)
+        public IInteraction ChooseOption(int v)
         {
             throw new NotImplementedException();
         }
