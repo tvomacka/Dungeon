@@ -1,0 +1,14 @@
+Level:
+Typ: Najdi a dones
+Zadává:
+Téma: 
+	V hospodě se objeví statkář z vesnice a stěžuje si hospodskému, že mu nějací neřádi vypustili rybník a jemu se v bahně plácá spousta sumců, kterých se potřebuje rychle zbavit a nabízí je k odkupu s velkou slevou. Hospodský ale nemá čas, takže nabídne hráči, aby tam pro ryby došel.
+Postup:
+	1: hráč dojde k rybníku
+	2: v bahně nasbírá dostatečné množství ryb
+	3: odnese ryby hospodskému
+Odměna: 
+	- peníze
+	- nějaké jídlo z ryb
+Poznámka:
+	Úkol nepřímo souvisí s hlavní dějovou linkou (viz hlavní linka).
