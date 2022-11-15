@@ -11,3 +11,13 @@ The game cycles through the following states:
 |Dialogue|The party engages in dialogue with an NPC.|
 |Combat|The party fights a group of monsters.|
 |Shop|For buying and selling items from vendors.|
+
+```mermaid
+graph TD;
+    Explore-->Dialogue;
+    Dialogue-->Explore;
+    Explore-->Combat;
+    Combat-->Explore;
+    Explore-->Shop;
+    Shop-->Explore;
+```
