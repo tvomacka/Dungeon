@@ -45,5 +45,7 @@ namespace Dungeon.GameLogic
                 return instance;
             }
         }
+
+        public static IInteraction Explore { get; internal set; }
     }
 }

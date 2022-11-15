@@ -10,7 +10,8 @@ namespace Dungeon.GameLogic
     {
         public IInteraction ChooseOption(int v)
         {
-            return this;
+            Game.Instance.Quests.Add(new Quest());
+            return Game.Explore;
         }
     }
 }
