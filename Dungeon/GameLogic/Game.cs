@@ -8,7 +8,7 @@ namespace Dungeon.GameLogic
 {
     public class Game
     {
-        private static Game instance;
+        private static Game instance = null;
 
         public Dictionary<string, Character> Characters { get; set; }
 
@@ -41,8 +41,7 @@ namespace Dungeon.GameLogic
         {
             get 
             { 
-                if(instance == null) 
-                    instance = new Game();
+                instance ??= new Game();
                 return instance;
             }
         }

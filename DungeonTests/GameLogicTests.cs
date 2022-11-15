@@ -5,7 +5,7 @@ namespace DungeonTests
     [TestClass]
     public class GameLogicTests
     {
-        private Game game = Game.Instance();
+        private Game game = Game.Instance;
 
         [TestMethod]
         public void Party_CanMoveTowardsNpc()
