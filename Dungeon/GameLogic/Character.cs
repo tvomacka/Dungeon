@@ -9,5 +9,13 @@ namespace Dungeon.GameLogic
     public class Character
     {
         public Point Location { get; set; }
+
+        internal IInteraction Interact()
+        {
+            return new Dialogue()
+            {
+
+            };
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Dungeon.GameLogic
     {
         public IInteraction ChooseOption(int v)
         {
-            throw new NotImplementedException();
+            return this;
         }
     }
 }
