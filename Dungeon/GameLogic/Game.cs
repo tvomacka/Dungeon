@@ -8,13 +8,15 @@ namespace Dungeon.GameLogic
 {
     public class Game
     {
+        private static Game instance;
+
         public Dictionary<string, Character> Characters { get; set; }
 
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
         public IInteraction State { get; set; }
 
-        public Game()
+        private Game()
         {
             Characters = new Dictionary<string, Character>();
             Quests = new List<Quest>();
@@ -33,6 +35,16 @@ namespace Dungeon.GameLogic
                 Location = new Point(5, 5) 
             };
             Party.Location = new Point(3, 5);
+        }
+
+        public static Game Instance
+        {
+            get 
+            { 
+                if(instance == null) 
+                    instance = new Game();
+                return instance;
+            }
         }
     }
 }
