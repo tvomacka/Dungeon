@@ -19,8 +19,6 @@ namespace DungeonTests
             Assert.AreEqual("{X=4,Y=5}", game.Party.Location.ToString());
         }
 
-
-
         [TestMethod]
         public void Party_CanGetQuestFromNpcThroughDialogue()
         {
