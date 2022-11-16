@@ -15,9 +15,12 @@ The game cycles through the following states:
 ```mermaid
 graph TD;
     Explore-->Dialogue;
-    Dialogue-->Explore;
     Explore-->Combat;
-    Combat-->Explore;
     Explore-->Shop;
+    Explore-->Inventory;
+    Explore-->Character;
+    Dialogue-->Explore;
+    Dialogue-->Combat;
+    Combat-->Explore;
     Shop-->Explore;
 ```
