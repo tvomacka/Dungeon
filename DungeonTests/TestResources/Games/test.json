@@ -1,0 +1,71 @@
+﻿{
+	"Characters": [
+		{
+			"Name": "QuestNPC",
+			"Location": "5, 5",
+			"Dialogue": 0
+		},
+		{
+			"Name": "DialogueNPC",
+			"Location": "5, 4",
+			"Dialogue": 1
+		}
+	],
+	"Dialogues": [
+		{
+			"Id": 0,
+			"InitialState": 0,
+			"States": [
+				{
+					"Id": 0,
+					"Text": "Do you want to a accept the test Quest?",
+					"Options": [
+						{
+							"Id": 0,
+							"Text": "Yes",
+							"TargetState": -1
+						},
+						{
+							"Id": 1,
+							"Text": "No",
+							"TargetState": -1
+						}
+					]
+				}
+			]
+		},
+		{
+			"Id": 1,
+			"InitialState": 0,
+			"States": [
+				{
+					"Id": 0,
+					"Text": "Choose the first option to proceed in the dialog.",
+					"Options": [
+						{
+							"Id": 0,
+							"Text": "The first and only option",
+							"TargetState": 1
+						}
+					]
+				},
+				{
+					"Id": 1,
+					"Text": "Satisfied?",
+					"Options": [
+						{
+							"Id": 0,
+							"Text": "Yes",
+							"TargetState": -1
+						},
+						{
+							"Id": 1,
+							"Text": "No",
+							"TargetState": -1
+						}
+					]
+				}
+			]
+		}
+	]
+}
