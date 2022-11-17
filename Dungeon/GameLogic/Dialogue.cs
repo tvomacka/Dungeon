@@ -16,11 +16,7 @@ namespace Dungeon.GameLogic
 
         public IInteraction ChooseOption(int v)
         {
-            if (v == 0)
-            {
-                Game.Instance.Quests.Add(new Quest());
-            }
-            return new Game.Explore();
+            return this;
         }
 
         public override string ToString()

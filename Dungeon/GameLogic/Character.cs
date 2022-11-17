@@ -10,13 +10,11 @@ namespace Dungeon.GameLogic
     {
         public Point Location { get; set; }
         public String Name { get; set; }
+        public int Dialogue { get; set; }
 
         internal Dialogue StartDialogue()
         {
-            return new Dialogue()
-            {
-                
-            };
+            return Game.Instance.Dialogues.Single(d => d.Id == Dialogue);
         }
     }
 }
