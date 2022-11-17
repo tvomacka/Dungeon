@@ -34,6 +34,7 @@ namespace Dungeon.GameLogic
             {
                 Location = new Point(5, 5) 
             };
+            Quests = new List<Quest>();
             Party.Location = new Point(3, 5);
         }
 

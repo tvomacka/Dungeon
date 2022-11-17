@@ -16,7 +16,10 @@ namespace Dungeon.GameLogic
 
         public IInteraction ChooseOption(int v)
         {
-            Game.Instance.Quests.Add(new Quest());
+            if (v == 0)
+            {
+                Game.Instance.Quests.Add(new Quest());
+            }
             return Game.Explore;
         }
     }
