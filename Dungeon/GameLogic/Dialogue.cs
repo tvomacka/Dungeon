@@ -20,7 +20,12 @@ namespace Dungeon.GameLogic
             {
                 Game.Instance.Quests.Add(new Quest());
             }
-            return Game.Explore;
+            return new Game.Explore();
+        }
+
+        public override string ToString()
+        {
+            return "Dialogue";
         }
     }
 }

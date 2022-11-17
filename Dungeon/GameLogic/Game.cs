@@ -21,6 +21,7 @@ namespace Dungeon.GameLogic
             Characters = new Dictionary<string, Character>();
             Quests = new List<Quest>();
             Party = new Party();
+            State = new Explore();
         }
 
         public IInteraction DialogueWith(Character npc)
@@ -34,6 +35,11 @@ namespace Dungeon.GameLogic
             {
                 Location = new Point(5, 5) 
             };
+            Characters["DialogueNPC"] = new Character()
+            {
+                Location = new Point(4, 5)
+            };
+
             Quests = new List<Quest>();
             Party.Location = new Point(3, 5);
         }
@@ -47,6 +53,12 @@ namespace Dungeon.GameLogic
             }
         }
 
-        public static IInteraction Explore { get; internal set; }
+        public class Explore : IInteraction
+        {
+            public override string ToString()
+            {
+                return "Explore";
+            }
+        }
     }
 }

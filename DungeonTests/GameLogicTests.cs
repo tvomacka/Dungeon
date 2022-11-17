@@ -46,5 +46,20 @@ namespace DungeonTests
 
             Assert.AreEqual(0, game.Quests.Count);
         }
+
+        [TestMethod]
+        public void Dialogue_CanTraverseFromGreetingsToText()
+        {
+            game.Load(@"TestResources\Games\test.game");
+
+            var npc = game.Characters["DialogueNPC"];
+            game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+            game.State = game.DialogueWith(npc);
+            Assert.AreEqual("Dialogue", game.State.ToString());
+            game.State = (game.State as Dialogue).ChooseOption(0);
+            Assert.AreEqual("Dialogue", game.State.ToString());
+            game.State = (game.State as Dialogue).ChooseOption(0);
+            Assert.AreEqual("", game.State.ToString());
+        }
     }
 }
