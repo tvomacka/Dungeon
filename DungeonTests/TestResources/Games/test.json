@@ -1,16 +1,25 @@
 ﻿{
 	"Party": {
-		"Location": "3, 5"
+		"Location": {
+			"X": 3,
+			"Y": 5
+		}
 	},
 	"Characters": [
 		{
 			"Name": "QuestNPC",
-			"Location": "5, 5",
+			"Location": {
+				"X": 5,
+				"Y": 5
+			},
 			"Dialogue": 0
 		},
 		{
 			"Name": "DialogueNPC",
-			"Location": "5, 4",
+			"Location": {
+				"X": 5,
+				"Y": 4
+			},
 			"Dialogue": 1
 		}
 	],
