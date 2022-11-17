@@ -52,27 +52,27 @@
 			"States": [
 				{
 					"Id": 0,
-					"Text": "Choose the first option to proceed in the dialog.",
+					"Text": "Greetings.",
 					"Options": [
 						{
 							"Id": 0,
-							"Text": "The first and only option",
+							"Text": "Hi there!",
 							"TargetState": 1
 						}
 					]
 				},
 				{
 					"Id": 1,
-					"Text": "Satisfied?",
+					"Text": "Want anything?",
 					"Options": [
 						{
 							"Id": 0,
-							"Text": "Yes",
+							"Text": "No.",
 							"TargetState": -1
 						},
 						{
 							"Id": 1,
-							"Text": "No",
+							"Text": "Not really.",
 							"TargetState": -1
 						}
 					]

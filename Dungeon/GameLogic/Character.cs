@@ -15,12 +15,7 @@ namespace Dungeon.GameLogic
         {
             return new Dialogue()
             {
-                Text = "Do you want to accept the quest?",
-                Options = new List<string>()
-                {
-                    "Yes",
-                    "No"
-                }
+                
             };
         }
     }

@@ -13,7 +13,7 @@ namespace Dungeon.GameLogic
         private static Game instance = null;
 
         private List<Character> Characters { get; set; }
-
+        public List<Dialogue> Dialogues { get; set; }
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
         public IInteraction State { get; set; }
@@ -37,17 +37,7 @@ namespace Dungeon.GameLogic
             var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
 
             Characters = JsonSerializer.Deserialize<Character[]>(json["Characters"]).ToList<Character>();
-
-            //Characters["QuestNPC"] = new Character() 
-            //{
-            //    Location = new Point(5, 5) 
-            //};
-            //Characters["DialogueNPC"] = new Character()
-            //{
-            //    Location = new Point(4, 5)
-            //};
-
-            //Quests = new List<Quest>();
+            Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
             Party = JsonSerializer.Deserialize<Party>(json["Party"]);
         }
 
