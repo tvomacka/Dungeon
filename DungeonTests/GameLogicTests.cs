@@ -10,14 +10,19 @@ namespace DungeonTests
         [TestMethod]
         public void PartyLocation_CanBeLoadedFromFile()
         {
-            game.Load(@"TestResources\Games\test.game");
+            LoadTestGame();
             Assert.AreEqual("{X=3,Y=5}", game.Party.Location.ToString());
+        }
+
+        private void LoadTestGame()
+        {
+            game.Load(@"..\..\..\TestResources\Games\test.json");
         }
 
         [TestMethod]
         public void Party_CanMoveTowardsNpc()
         {
-            game.Load(@"TestResources\Games\test.game");
+            LoadTestGame();
             Assert.AreEqual("{X=3,Y=5}", game.Party.Location.ToString());
 
             var npc = game.Characters["QuestNPC"];
@@ -29,7 +34,7 @@ namespace DungeonTests
         [TestMethod]
         public void Party_CanGetQuestFromNpcThroughDialogue()
         {
-            game.Load(@"TestResources\Games\test.game");
+            LoadTestGame();
             Assert.AreEqual(0, game.Quests.Count);
 
             var npc = game.Characters["QuestNPC"];
@@ -43,7 +48,7 @@ namespace DungeonTests
         [TestMethod]
         public void Party_CanDeclineQuestFromNpcThroughDialogue()
         {
-            game.Load(@"TestResources\Games\test.game");
+            LoadTestGame();
             Assert.AreEqual(0, game.Quests.Count);
 
             var npc = game.Characters["QuestNPC"];
@@ -57,7 +62,7 @@ namespace DungeonTests
         [TestMethod]
         public void Dialogue_CanTraverseFromGreetingsToText()
         {
-            game.Load(@"TestResources\Games\test.game");
+            LoadTestGame();
 
             var npc = game.Characters["DialogueNPC"];
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
