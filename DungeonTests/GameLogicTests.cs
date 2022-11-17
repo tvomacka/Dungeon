@@ -8,6 +8,13 @@ namespace DungeonTests
         private Game game = Game.Instance;
 
         [TestMethod]
+        public void PartyLocation_CanBeLoadedFromFile()
+        {
+            game.Load(@"TestResources\Games\test.game");
+            Assert.AreEqual("{X=3,Y=5}", game.Party.Location.ToString());
+        }
+
+        [TestMethod]
         public void Party_CanMoveTowardsNpc()
         {
             game.Load(@"TestResources\Games\test.game");

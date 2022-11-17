@@ -1,4 +1,7 @@
 ﻿{
+	"Party": {
+		"Location": "3, 5"
+	},
 	"Characters": [
 		{
 			"Name": "QuestNPC",
