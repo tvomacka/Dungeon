@@ -9,6 +9,7 @@ namespace Dungeon.GameLogic
     public class Character
     {
         public Point Location { get; set; }
+        public String Name { get; set; }
 
         internal Dialogue StartDialogue()
         {

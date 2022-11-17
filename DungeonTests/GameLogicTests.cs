@@ -25,7 +25,7 @@ namespace DungeonTests
             LoadTestGame();
             Assert.AreEqual("{X=3,Y=5}", game.Party.Location.ToString());
 
-            var npc = game.Characters["QuestNPC"];
+            var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
 
             Assert.AreEqual("{X=4,Y=5}", game.Party.Location.ToString());
@@ -37,7 +37,7 @@ namespace DungeonTests
             LoadTestGame();
             Assert.AreEqual(0, game.Quests.Count);
 
-            var npc = game.Characters["QuestNPC"];
+            var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(0);
@@ -51,7 +51,7 @@ namespace DungeonTests
             LoadTestGame();
             Assert.AreEqual(0, game.Quests.Count);
 
-            var npc = game.Characters["QuestNPC"];
+            var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
@@ -64,7 +64,7 @@ namespace DungeonTests
         {
             LoadTestGame();
 
-            var npc = game.Characters["DialogueNPC"];
+            var npc = game.GetCharacter("DialogueNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             Assert.AreEqual("Dialogue", game.State.ToString());

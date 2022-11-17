@@ -12,7 +12,7 @@ namespace Dungeon.GameLogic
     {
         private static Game instance = null;
 
-        public Dictionary<string, Character> Characters { get; set; }
+        private List<Character> Characters { get; set; }
 
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
@@ -20,7 +20,7 @@ namespace Dungeon.GameLogic
 
         private Game()
         {
-            Characters = new Dictionary<string, Character>();
+            Characters = new List<Character>();
             Quests = new List<Quest>();
             Party = new Party();
             State = new Explore();
@@ -36,6 +36,8 @@ namespace Dungeon.GameLogic
             string jsonString = File.ReadAllText(path);
             var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
 
+            Characters = JsonSerializer.Deserialize<Character[]>(json["Characters"]).ToList<Character>();
+
             //Characters["QuestNPC"] = new Character() 
             //{
             //    Location = new Point(5, 5) 
@@ -47,6 +49,11 @@ namespace Dungeon.GameLogic
 
             //Quests = new List<Quest>();
             Party = JsonSerializer.Deserialize<Party>(json["Party"]);
+        }
+
+        public Character GetCharacter(string name)
+        {
+            return Characters.Single(c => c.Name.Equals(name));
         }
 
         public static Game Instance
