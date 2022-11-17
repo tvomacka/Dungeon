@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace Dungeon.GameLogic
@@ -31,17 +33,20 @@ namespace Dungeon.GameLogic
 
         public void Load(string path)
         {
-            Characters["QuestNPC"] = new Character() 
-            {
-                Location = new Point(5, 5) 
-            };
-            Characters["DialogueNPC"] = new Character()
-            {
-                Location = new Point(4, 5)
-            };
+            string jsonString = File.ReadAllText(path);
+            var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
 
-            Quests = new List<Quest>();
-            Party.Location = new Point(3, 5);
+            //Characters["QuestNPC"] = new Character() 
+            //{
+            //    Location = new Point(5, 5) 
+            //};
+            //Characters["DialogueNPC"] = new Character()
+            //{
+            //    Location = new Point(4, 5)
+            //};
+
+            //Quests = new List<Quest>();
+            Party = JsonSerializer.Deserialize<Party>(json["Party"]);
         }
 
         public static Game Instance
