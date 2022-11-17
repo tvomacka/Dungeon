@@ -10,11 +10,16 @@ namespace Dungeon.GameLogic
     {
         public Point Location { get; set; }
 
-        internal IInteraction Interact()
+        internal Dialogue StartDialogue()
         {
             return new Dialogue()
             {
-
+                Text = "Do you want to accept the quest?",
+                Options = new List<string>()
+                {
+                    "Yes",
+                    "No"
+                }
             };
         }
     }

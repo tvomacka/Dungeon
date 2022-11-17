@@ -23,9 +23,9 @@ namespace Dungeon.GameLogic
             Party = new Party();
         }
 
-        public IInteraction InteractWith(Character npc)
+        public IInteraction DialogueWith(Character npc)
         {
-            return npc.Interact();
+            return npc.StartDialogue();
         }
 
         public void Load(string path)

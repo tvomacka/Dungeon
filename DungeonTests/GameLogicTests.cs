@@ -27,7 +27,7 @@ namespace DungeonTests
 
             var npc = game.Characters["QuestNPC"];
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-            game.State = game.InteractWith(npc);
+            game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
 
             Assert.AreEqual(1, game.Quests.Count);

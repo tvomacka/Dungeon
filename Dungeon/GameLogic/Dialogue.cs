@@ -8,6 +8,12 @@ namespace Dungeon.GameLogic
 {
     public class Dialogue : IInteraction
     {
+        public string Text { get; set; }
+        public List<string> Options { get; set; }
+
+        private int State = InitialState;
+        private static readonly int InitialState = 0;
+
         public IInteraction ChooseOption(int v)
         {
             Game.Instance.Quests.Add(new Quest());
