@@ -32,6 +32,13 @@ namespace DungeonTests
         }
 
         [TestMethod]
+        public void LoadedPlayerCharacter_HasCorrectInt()
+        {
+            LoadTestGame("party.json");
+            Assert.AreEqual(10, game.Party.Members[0].Intelligence);
+        }
+
+        [TestMethod]
         public void Party_CanMoveTowardsNpc()
         {
             LoadTestGame("test.json");
