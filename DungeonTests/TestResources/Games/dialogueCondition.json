@@ -3,7 +3,13 @@
 		"Location": {
 			"X": 3,
 			"Y": 5
-		}
+		},
+		"Members": [
+			{
+				"Name": "John Smith",
+				"Intelligence": 10
+			}
+		]
 	},
 	"Characters": [
 		{
@@ -12,7 +18,7 @@
 				"X": 5,
 				"Y": 4
 			},
-			"Dialogue": 1
+			"Dialogue": 0
 		}
 	],
 	"Dialogues": [
@@ -22,17 +28,7 @@
 			"States": [
 				{
 					"Id": 0,
-					"Text": "Greetings.",
-					"Options": [
-						{
-							"Text": "Hi there!",
-							"TargetState": 1
-						}
-					]
-				},
-				{
-					"Id": 1,
-					"Text": "Want anything?",
+					"Text": "Greetings, want anything?",
 					"Options": [
 						{
 							"Text": "No.",

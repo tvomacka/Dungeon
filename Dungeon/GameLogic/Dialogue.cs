@@ -52,6 +52,12 @@ namespace Dungeon.GameLogic
             return "Dialogue";
         }
 
+        public IEnumerable<DialogueOption> GetFilteredOptions()
+        {
+            var state = GetCurrentState();
+            return state.Options.Where(o => o.Condition == null || o.Condition.IsSatisfied());
+        }
+
         public class DialogueState
         {
             public int Id { get; set; }
@@ -77,10 +83,24 @@ namespace Dungeon.GameLogic
 
             public DialogAction[] Actions { get; set; }
 
+            public DialogueCondition Condition { get; set; }
+
             public override string ToString()
             {
                 return $"{Text}";
             }
+        }
+    }
+
+    public class DialogueCondition
+    {
+        public string Subject { get; set; }
+        public string Test { get; set; }
+        public string Target { get; set; }
+
+        public bool IsSatisfied()
+        {
+            return false;
         }
     }
 

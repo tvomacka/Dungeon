@@ -95,5 +95,15 @@ namespace DungeonTests
 
             Approvals.VerifyAll(states, "");
         }
+
+        [TestMethod]
+        public void DialogueOptionWithCondition_DoesNotShowByDefault()
+        {
+            LoadTestGame("dialogueCondition.json");
+
+            var npc = game.GetCharacter("DialogueNPC");
+            game.State = game.DialogueWith(npc);
+            Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
+        }
     }
 }
