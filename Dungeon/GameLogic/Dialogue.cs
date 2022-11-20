@@ -53,9 +53,10 @@ namespace Dungeon.GameLogic
             public override string ToString()
             {
                 var text = Text;
+                var optionId = 0;
                 foreach (var option in Options)
                 {
-                    text += ($"\n\t{option}");
+                    text += ($"\n\t{optionId++}: {option}");
                 }
                 return text;
             }
@@ -63,13 +64,12 @@ namespace Dungeon.GameLogic
 
         public class DialogueOption
         {
-            public int Id { get; set; }
             public string Text { get; set; }
             public int TargetState { get; set; }
 
             public override string ToString()
             {
-                return $"{Id}: {Text}";
+                return $"{Text}";
             }
         }
     }
