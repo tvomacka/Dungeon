@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dungeon.GameLogic
 {
-    public class Character
+    public class NonPlayerCharacter
     {
         public Point Location { get; set; }
-        public String Name { get; set; }
+        public string Name { get; set; }
         public int Dialogue { get; set; }
 
         internal Dialogue StartDialogue()

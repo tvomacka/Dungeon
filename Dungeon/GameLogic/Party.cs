@@ -9,6 +9,7 @@ namespace Dungeon.GameLogic
     public class Party
     {
         public Point Location { get; set; }
+        public List<PlayerCharacter> Members { get; set; }
 
         public void MoveTo(int x, int y)
         {
