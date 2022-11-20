@@ -37,7 +37,7 @@
 							"Text": "Yes",
 							"TargetState": -1,
 							"Action": {
-								"AddQuest": 0
+								"AcceptQuest": 0
 							}
 						},
 						{
