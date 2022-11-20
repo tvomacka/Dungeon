@@ -49,6 +49,16 @@ namespace Dungeon.GameLogic
             public int Id { get; set; }
             public string Text { get; set; }
             public DialogueOption[] Options { get; set; }
+
+            public override string ToString()
+            {
+                var text = Text;
+                foreach (var option in Options)
+                {
+                    text += ($"\n\t{option}");
+                }
+                return text;
+            }
         }
 
         public class DialogueOption
@@ -56,6 +66,11 @@ namespace Dungeon.GameLogic
             public int Id { get; set; }
             public string Text { get; set; }
             public int TargetState { get; set; }
+
+            public override string ToString()
+            {
+                return $"{Id}: {Text}";
+            }
         }
     }
 }
