@@ -35,9 +35,14 @@
 						{
 							"Text": "Yes",
 							"TargetState": -1,
-							"Action": {
-								"AcceptQuest": 0
-							}
+							"Actions": [
+								{
+									"ActionType": "AcceptQuest",
+									"ActionParameters": [
+										"0"
+									]
+								}
+							]
 						},
 						{
 							"Text": "No",
