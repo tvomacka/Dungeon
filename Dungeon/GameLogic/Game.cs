@@ -12,7 +12,7 @@ namespace Dungeon.GameLogic
     {
         private static Game instance = null;
 
-        private List<Character> Characters { get; set; }
+        private List<NonPlayerCharacter> Characters { get; set; }
         public List<Dialogue> Dialogues { get; set; }
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
@@ -20,13 +20,13 @@ namespace Dungeon.GameLogic
 
         private Game()
         {
-            Characters = new List<Character>();
+            Characters = new List<NonPlayerCharacter>();
             Quests = new List<Quest>();
             Party = new Party();
             State = ExploreState;
         }
 
-        public IInteraction DialogueWith(Character npc)
+        public IInteraction DialogueWith(NonPlayerCharacter npc)
         {
             return npc.StartDialogue();
         }
@@ -36,20 +36,29 @@ namespace Dungeon.GameLogic
             string jsonString = File.ReadAllText(path);
             var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
 
-            Characters = JsonSerializer.Deserialize<Character[]>(json["Characters"]).ToList<Character>();
-            Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
-            Party = JsonSerializer.Deserialize<Party>(json["Party"]);
+            if (json["Characters"] != null)
+            {
+                Characters = JsonSerializer.Deserialize<NonPlayerCharacter[]>(json["Characters"]).ToList<NonPlayerCharacter>();
+            }
+            if (json["Dialogues"] != null)
+            {
+                Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
+            }
+            if (json["Party"] != null)
+            {
+                Party = JsonSerializer.Deserialize<Party>(json["Party"]);
+            }
         }
 
-        public Character GetCharacter(string name)
+        public NonPlayerCharacter GetCharacter(string name)
         {
             return Characters.Single(c => c.Name.Equals(name));
         }
 
         public static Game Instance
         {
-            get 
-            { 
+            get
+            {
                 instance ??= new Game();
                 return instance;
             }

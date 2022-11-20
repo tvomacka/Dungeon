@@ -1,0 +1,14 @@
+{
+  "Party": {
+    "Location": {
+      "X": 3,
+      "Y": 5
+    },
+    "Members": [
+      {
+        "Name": "John Smith",
+        "Intelligence": 10
+      }
+    ]
+  }
+}
