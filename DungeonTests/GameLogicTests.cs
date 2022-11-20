@@ -105,5 +105,16 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
             Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
         }
+
+        [TestMethod]
+        public void DialogueOptionWithCondition_ShowsWhenConditionIsMet()
+        {
+            LoadTestGame("dialogueCondition.json");
+            game.Party.Members[0].Intelligence = 100;
+
+            var npc = game.GetCharacter("DialogueNPC");
+            game.State = game.DialogueWith(npc);
+            Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
+        }
     }
 }

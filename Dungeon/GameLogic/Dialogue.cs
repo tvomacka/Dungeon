@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.Design.AxImporter;
@@ -100,7 +101,7 @@ namespace Dungeon.GameLogic
 
         public bool IsSatisfied()
         {
-            return false;
+            return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
         }
     }
 
