@@ -33,12 +33,18 @@
 					"Text": "Do you want to a accept the test Quest?",
 					"Options": [
 						{
-							"Id": 0,
 							"Text": "Yes",
-							"TargetState": -1
+							"TargetState": -1,
+							"Actions": [
+								{
+									"ActionType": "AcceptQuest",
+									"ActionParameters": [
+										"0"
+									]
+								}
+							]
 						},
 						{
-							"Id": 1,
 							"Text": "No",
 							"TargetState": -1
 						}
@@ -55,7 +61,6 @@
 					"Text": "Greetings.",
 					"Options": [
 						{
-							"Id": 0,
 							"Text": "Hi there!",
 							"TargetState": 1
 						}
@@ -66,12 +71,10 @@
 					"Text": "Want anything?",
 					"Options": [
 						{
-							"Id": 0,
 							"Text": "No.",
 							"TargetState": -1
 						},
 						{
-							"Id": 1,
 							"Text": "Not really.",
 							"TargetState": -1
 						}
