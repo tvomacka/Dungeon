@@ -23,7 +23,7 @@ namespace Dungeon.GameLogic
             Characters = new List<Character>();
             Quests = new List<Quest>();
             Party = new Party();
-            State = new Explore();
+            State = ExploreState;
         }
 
         public IInteraction DialogueWith(Character npc)
@@ -54,6 +54,8 @@ namespace Dungeon.GameLogic
                 return instance;
             }
         }
+
+        public static readonly IInteraction ExploreState = new Explore();
 
         public class Explore : IInteraction
         {
