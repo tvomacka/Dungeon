@@ -3,6 +3,12 @@ A simple top-down 2D adventure/RPG game made using a TDD approach.
 
 ## Player characters
 
+## NPCs
+
+## Combat
+
+## Inventory and Items
+
 ## Game mechanics
 The game cycles through the following states:
 |Game State|Description|
