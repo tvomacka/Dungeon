@@ -31,14 +31,19 @@ namespace Dungeon.GameLogic
 
         public IInteraction ChooseOption(int v)
         {
-            if(GetCurrentState().Options[v].Actions != null)
+            var option = GetCurrentState().Options[v];
+            if (option.Condition != null && !option.Condition.IsSatisfied())
             {
-                foreach (var action in GetCurrentState().Options[v].Actions)
+                throw new ArgumentException($"You are trying to choose a dialog option with unsatisfied condition.\n\tOption: {option}\n\tCondition: {option.Condition}");
+            }
+            if(option.Actions != null)
+            {
+                foreach (var action in option.Actions)
                 {
                     action.Execute();
                 }
             }
-            var newState = GetCurrentState().Options[v].TargetState;
+            var newState = option.TargetState;
             if (0 <= newState && newState < States.Length)
             {
                 this.state = newState;
@@ -102,6 +107,11 @@ namespace Dungeon.GameLogic
         public bool IsSatisfied()
         {
             return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+        }
+
+        public override string ToString()
+        {
+            return $"{Subject} {Test} {Target}";
         }
     }
 
