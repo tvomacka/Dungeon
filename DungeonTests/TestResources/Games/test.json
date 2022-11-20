@@ -35,7 +35,10 @@
 						{
 							"Id": 0,
 							"Text": "Yes",
-							"TargetState": -1
+							"TargetState": -1,
+							"Action": {
+								"AddQuest": 0
+							}
 						},
 						{
 							"Id": 1,
