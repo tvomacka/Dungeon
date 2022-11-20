@@ -71,7 +71,7 @@ namespace DungeonTests
             game.State = (game.State as Dialogue).ChooseOption(0);
             Assert.AreEqual("Dialogue", game.State.ToString());
             game.State = (game.State as Dialogue).ChooseOption(0);
-            Assert.AreEqual("", game.State.ToString());
+            Assert.AreEqual("Explore", game.State.ToString());
         }
     }
 }

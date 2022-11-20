@@ -10,13 +10,33 @@ namespace Dungeon.GameLogic
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public int InitialState { get; set; }   
+        public int InitialState { get; set; }
+
+        private int state;
 
         public DialogueState[] States { get; set; }
 
+        public Dialogue StartDialogue()
+        {
+            this.state = InitialState;
+            return this;
+        }
+
+        public DialogueState GetCurrentState()
+        {
+            return States[state];
+        }
+
         public IInteraction ChooseOption(int v)
         {
-            return this;
+            var newState = GetCurrentState().Options[v].TargetState;
+            if (0 <= newState && newState < States.Length)
+            {
+                this.state = newState;
+                return this;
+            }
+
+            return Game.ExploreState;
         }
 
         public override string ToString()
