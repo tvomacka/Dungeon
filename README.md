@@ -2,7 +2,10 @@
 A simple top-down 2D adventure/RPG game made using a TDD approach.
 
 ## Player characters
-
+### Attributes
+|Attribute|Short|Description|
+|---|---|---|
+|Intelligence|INT|...|
 ## NPCs
 
 ## Combat
