@@ -116,5 +116,16 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
             Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Player_CannotChoose_DialogueOptionWithUnsatisfiedCondition()
+        {
+            LoadTestGame("dialogueCondition.json");
+
+            var npc = game.GetCharacter("DialogueNPC");
+            game.State = game.DialogueWith(npc);
+            (game.State as Dialogue).ChooseOption(2);
+        }
     }
 }
