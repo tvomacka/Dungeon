@@ -1,7 +1,11 @@
+using ApprovalTests;
+using ApprovalTests.Reporters;
+using ApprovalTests.Reporters.Windows;
 using Dungeon.GameLogic;
 
 namespace DungeonTests
 {
+    [UseReporter(typeof(VisualStudioReporter))]
     [TestClass]
     public class GameLogicTests
     {
@@ -64,14 +68,17 @@ namespace DungeonTests
         {
             LoadTestGame();
 
+            var states = new List<string>();
+
             var npc = game.GetCharacter("DialogueNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
-            Assert.AreEqual("Dialogue", game.State.ToString());
+            states.Add((game.State as Dialogue).GetCurrentState().ToString());
             game.State = (game.State as Dialogue).ChooseOption(0);
-            Assert.AreEqual("Dialogue", game.State.ToString());
+            states.Add((game.State as Dialogue).GetCurrentState().ToString());
             game.State = (game.State as Dialogue).ChooseOption(0);
-            Assert.AreEqual("Explore", game.State.ToString());
+
+            Approvals.VerifyAll(states, "");
         }
     }
 }
