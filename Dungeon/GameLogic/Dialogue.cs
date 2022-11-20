@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.Design.AxImporter;
@@ -52,6 +53,12 @@ namespace Dungeon.GameLogic
             return "Dialogue";
         }
 
+        public IEnumerable<DialogueOption> GetFilteredOptions()
+        {
+            var state = GetCurrentState();
+            return state.Options.Where(o => o.Condition == null || o.Condition.IsSatisfied());
+        }
+
         public class DialogueState
         {
             public int Id { get; set; }
@@ -77,10 +84,24 @@ namespace Dungeon.GameLogic
 
             public DialogAction[] Actions { get; set; }
 
+            public DialogueCondition Condition { get; set; }
+
             public override string ToString()
             {
                 return $"{Text}";
             }
+        }
+    }
+
+    public class DialogueCondition
+    {
+        public string Subject { get; set; }
+        public string Test { get; set; }
+        public string Target { get; set; }
+
+        public bool IsSatisfied()
+        {
+            return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
         }
     }
 

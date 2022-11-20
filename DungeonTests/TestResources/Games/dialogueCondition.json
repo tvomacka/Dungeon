@@ -1,0 +1,55 @@
+﻿{
+	"Party": {
+		"Location": {
+			"X": 3,
+			"Y": 5
+		},
+		"Members": [
+			{
+				"Name": "John Smith",
+				"Intelligence": 10
+			}
+		]
+	},
+	"Characters": [
+		{
+			"Name": "DialogueNPC",
+			"Location": {
+				"X": 5,
+				"Y": 4
+			},
+			"Dialogue": 0
+		}
+	],
+	"Dialogues": [
+		{
+			"Id": 0,
+			"InitialState": 0,
+			"States": [
+				{
+					"Id": 0,
+					"Text": "Greetings, want anything?",
+					"Options": [
+						{
+							"Text": "No.",
+							"TargetState": -1
+						},
+						{
+							"Text": "Not really.",
+							"TargetState": -1
+						},
+						{
+							"Text": "Yes!",
+							"TargetState": -1,
+							"Condition": {
+								"Subject": "Intelligence",
+								"Test": "GreaterThan",
+								"Target": "10"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
