@@ -129,7 +129,7 @@ namespace DungeonTests
         }
 
         [TestMethod]
-        public void ItemOnGround_CanBeLoaded_FromJson()
+        public void Item_CanBeLoaded_FromJson()
         {
             LoadTestGame("fetchQuest.json");
 
