@@ -122,7 +122,7 @@ namespace Dungeon.GameLogic
 
         public void Execute()
         {
-            Game.Instance.Party.ActiveQuests.Add(new Quest());
+            Game.Instance.Party.ActiveQuests.Add(0);
         }
     }
 }
