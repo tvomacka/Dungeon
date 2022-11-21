@@ -156,6 +156,18 @@ namespace DungeonTests
             game.PickUpItem(0, 0);
         }
 
+        [TestMethod]
+        public void Item_CanBePickedUp_FromTheGround()
+        {
+            LoadTestGame("fetchQuest.json");
+            
+            game.Party.MoveTo(game.Items[0].Location);
+            game.PickUpItem(0, 0);
+
+            Assert.AreEqual("InInventory", game.Items[0].State);
+            Assert.IsTrue(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+        }
+
         public void FetchQuest_Complete_Test()
         {
             //Load game

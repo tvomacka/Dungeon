@@ -22,5 +22,10 @@ namespace Dungeon.GameLogic
         {
             Location = new Point(x, y);
         }
+
+        public void MoveTo(Point location)
+        {
+            MoveTo(location.X, location.Y);
+        }
     }
 }

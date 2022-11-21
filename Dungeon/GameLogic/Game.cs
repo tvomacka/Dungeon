@@ -78,7 +78,8 @@ namespace Dungeon.GameLogic
 
             if(Party.Location.Equals(item.Location))
             {
-
+                item.State = Item.InInventory;
+                character.Inventory.Add(item.Id);
             }
             else
             {

@@ -2,6 +2,7 @@
 {
     public class Item
     {
+        public static readonly string InInventory = "InInventory";
         public int Id { get; set; }
         public string Name { get; set; }
         public string State { get; set; }
