@@ -145,5 +145,19 @@ namespace DungeonTests
             Assert.AreEqual(1, game.Quests.Count);
             Assert.AreEqual("Quest 0: Fetch Quest Test", game.Quests[0].ToString());
         }
+
+        public void FetchQuest_Complete_Test()
+        {
+            //Load game
+            //Assert that the party has a quest assigned
+            //Move party towards the quest item
+            //Pick up the item
+            //Move party towards the npc
+            //Start dialog with the npc
+            //Choose the dialog option to finish the quest
+            //Assert that the party lost the quest item
+            //Assert that the party has no active quests
+            //Assert that the character received the xp reward
+        }
     }
 }
