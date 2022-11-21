@@ -2,6 +2,7 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
 using Dungeon.GameLogic;
+using Dungeon.GameLogic.Exceptions;
 
 namespace DungeonTests
 {
@@ -146,10 +147,18 @@ namespace DungeonTests
             Assert.AreEqual("Quest 0: Fetch Quest Test", game.Quests[0].ToString());
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(GameException))]
+        public void Item_CannotBePickedUp_FromDistance()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            game.PickUpItem(0, 0);
+        }
+
         public void FetchQuest_Complete_Test()
         {
             //Load game
-            //Assert that the party has a quest assigned
             //Move party towards the quest item
             //Pick up the item
             //Move party towards the npc
