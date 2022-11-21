@@ -54,6 +54,10 @@ namespace Dungeon.GameLogic
             {
                 Items = JsonSerializer.Deserialize<Item[]>(json["Items"]).ToList<Item>();
             }
+            if (json["Quests"] != null)
+            {
+                Quests = JsonSerializer.Deserialize<Quest[]>(json["Quests"]).ToList<Quest>();
+            }
         }
 
         public NonPlayerCharacter GetCharacter(string name)
