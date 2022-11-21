@@ -9,14 +9,15 @@
         "Name": "John Smith",
         "Intelligence": 10
       }
-    ]
+    ],
+    "ActiveQuests": [0]
   },
   "Characters": [
     {
-      "Name": "DialogueNPC",
+      "Name": "QuestNPC",
       "Location": {
-        "X": 5,
-        "Y": 4
+        "X": 7,
+        "Y": 0
       },
       "Dialogue": 0
     }
@@ -28,28 +29,41 @@
       "States": [
         {
           "Id": 0,
-          "Text": "Greetings, want anything?",
+          "Text": "Greetings, do you have the quest item?",
           "Options": [
             {
               "Text": "No.",
               "TargetState": -1
             },
             {
-              "Text": "Not really.",
-              "TargetState": -1
-            },
-            {
               "Text": "Yes!",
               "TargetState": -1,
               "Condition": {
-                "Subject": "Intelligence",
-                "Test": "GreaterThan",
-                "Target": "10"
+                "Subject": "Item",
+                "Test": "InInventory",
+                "Target": "0"
               }
             }
           ]
         }
       ]
+    }
+  ],
+  "Items": [
+    {
+      "Id": 0,
+      "State": "OnGround",
+      "Location": {
+        "X": 3,
+        "Y": 0
+      },
+      "Name": "Quest Item"
+    }
+  ],
+  "Quests": [
+    {
+      "Id": 0,
+      "Name": "Fetch Quest Test"
     }
   ]
 }
