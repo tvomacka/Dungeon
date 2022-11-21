@@ -68,14 +68,14 @@ namespace DungeonTests
         public void Party_CanDeclineQuestFromNpcThroughDialogue()
         {
             LoadTestGame("test.json");
-            Assert.AreEqual(0, game.Quests.Count);
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count);
 
             var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
 
-            Assert.AreEqual(0, game.Quests.Count);
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count);
         }
 
         [TestMethod]
