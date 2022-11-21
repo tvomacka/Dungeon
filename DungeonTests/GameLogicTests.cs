@@ -143,7 +143,7 @@ namespace DungeonTests
             LoadTestGame("fetchQuest.json");
 
             Assert.AreEqual(1, game.Quests.Count);
-            Assert.AreEqual("", game.Quests[0].ToString());
+            Assert.AreEqual("Quest 0: Fetch Quest Test", game.Quests[0].ToString());
         }
     }
 }
