@@ -16,6 +16,8 @@ namespace Dungeon.GameLogic
         public List<Dialogue> Dialogues { get; set; }
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
+
+        public List<Item> Items { get; set; }
         public IInteraction State { get; set; }
 
         private Game()
@@ -47,6 +49,10 @@ namespace Dungeon.GameLogic
             if (json["Party"] != null)
             {
                 Party = JsonSerializer.Deserialize<Party>(json["Party"]);
+            }
+            if (json["Items"] != null)
+            {
+                Items = JsonSerializer.Deserialize<Item[]>(json["Items"]).ToList<Item>();
             }
         }
 

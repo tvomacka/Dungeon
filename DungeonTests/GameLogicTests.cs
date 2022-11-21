@@ -127,5 +127,14 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
             (game.State as Dialogue).ChooseOption(2);
         }
+
+        [TestMethod]
+        public void ItemOnGround_CanBeLoaded_FromJson()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(1, game.Items.Count);
+            Assert.AreEqual("Item 0: Quest Item", game.Items[0].ToString());
+        }
     }
 }
