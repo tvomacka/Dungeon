@@ -10,6 +10,13 @@ namespace Dungeon.GameLogic
     {
         public Point Location { get; set; }
         public List<PlayerCharacter> Members { get; set; }
+        public List<Quest> ActiveQuests { get; set; }
+
+        public Party()
+        {
+            Members = new List<PlayerCharacter>();
+            ActiveQuests = new List<Quest>();
+        }
 
         public void MoveTo(int x, int y)
         {
