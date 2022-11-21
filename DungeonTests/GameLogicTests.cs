@@ -136,5 +136,14 @@ namespace DungeonTests
             Assert.AreEqual(1, game.Items.Count);
             Assert.AreEqual("Item 0: Quest Item", game.Items[0].ToString());
         }
+
+        [TestMethod]
+        public void Quest_CanBeLoaded_FromJson()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(1, game.Quests.Count);
+            Assert.AreEqual("", game.Quests[0].ToString());
+        }
     }
 }
