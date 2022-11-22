@@ -1,0 +1,13 @@
+Level:
+Typ: 
+Zadává:
+Téma: 
+	V odlehlé věži a jejím blízkém okolí žijí dva vědci-mágové. Jsou to bratři, kteří se snaží pochopit podstatu primárního chaosu, ze kterého vznikl všechen život a z nějž vyvěrá primární síla magie.
+  Jeden z vědců celou noc pozoruje hvězdy, druhý celý den zkoumá zrnko písku a snaží se jeho dělením na menší a menší části zjistit, co je jeho podstatou.
+  Ve všech otázkách spolu vědci nesouhlasí, cílem úkolu je najít něco, na čem se shodnou a přimět je ke spolupráci.
+Postup:
+	
+Odměna: 
+	- Kouzla/kouzelné předměty nějak, které nějak souvisejí s původním výzkumem a mohou být použity jako zbraně.
+Poznámka:
+	
