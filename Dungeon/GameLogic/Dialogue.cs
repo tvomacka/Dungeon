@@ -87,7 +87,7 @@ namespace Dungeon.GameLogic
             public string Text { get; set; }
             public int TargetState { get; set; }
 
-            public DialogAction[] Actions { get; set; }
+            public DialogueAction[] Actions { get; set; }
 
             public DialogueCondition Condition { get; set; }
 
@@ -120,7 +120,7 @@ namespace Dungeon.GameLogic
         }
     }
 
-    public class DialogAction
+    public class DialogueAction
     {
         public string ActionType { get; set; }
         public string[] ActionParameters {get; set;}
