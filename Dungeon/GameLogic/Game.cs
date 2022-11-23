@@ -74,7 +74,7 @@ namespace Dungeon.GameLogic
                 throw new GameException($"You are trying to give item {itemId} to a character with invalid id {characterId}. There are currently {Party.Members?.Count} characters in the party.");
             
             var item = Items[itemId];
-            var character = Party.Members[characterId];
+            var character = Party[characterId];
 
             if(Party.Location.Equals(item.Location))
             {

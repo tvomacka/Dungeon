@@ -107,9 +107,9 @@ namespace Dungeon.GameLogic
         public bool IsSatisfied()
         {
             if (Subject == "Intelligence" && Test == "GreaterThan")
-                return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+                return Game.Instance.Party[0].Intelligence > int.Parse(Target);
             else if (Subject == "Item" && Test == "InInventory")
-                return Game.Instance.Party.Members[0].Inventory.Contains(int.Parse(Target));
+                return Game.Instance.Party[0].Inventory.Contains(int.Parse(Target));
 
             return false;
         }
@@ -132,9 +132,9 @@ namespace Dungeon.GameLogic
             else if (ActionType == "FinishQuest")
                 Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
             else if (ActionType == "LoseItem")
-                Game.Instance.Party.Members[0].Inventory.Remove(int.Parse(ActionParameters[0]));
+                Game.Instance.Party[0].Inventory.Remove(int.Parse(ActionParameters[0]));
             else if (ActionType == "GainXP")
-                Game.Instance.Party.Members[0].AddXP(int.Parse(ActionParameters[0]));
+                Game.Instance.Party[0].AddXP(int.Parse(ActionParameters[0]));
         }
     }
 }

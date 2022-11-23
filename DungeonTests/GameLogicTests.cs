@@ -36,7 +36,7 @@ namespace DungeonTests
         public void LoadedPlayerCharacter_HasCorrectInt()
         {
             LoadTestGame("party.json");
-            Assert.AreEqual(10, game.Party.Members[0].Intelligence);
+            Assert.AreEqual(10, game.Party[0].Intelligence);
         }
 
         [TestMethod]
@@ -111,7 +111,7 @@ namespace DungeonTests
         public void DialogueOptionWithCondition_ShowsWhenConditionIsMet()
         {
             LoadTestGame("dialogueCondition.json");
-            game.Party.Members[0].Intelligence = 100;
+            game.Party[0].Intelligence = 100;
 
             var npc = game.GetCharacter("DialogueNPC");
             game.State = game.DialogueWith(npc);
@@ -165,7 +165,7 @@ namespace DungeonTests
             game.PickUpItem(0, 0);
 
             Assert.AreEqual("InInventory", game.Items[0].State);
-            Assert.IsTrue(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+            Assert.IsTrue(game.Party[0].Inventory.Contains(game.Items[0].Id));
         }
 
         [TestMethod]
@@ -184,9 +184,9 @@ namespace DungeonTests
         {
             LoadTestGame("fetchQuest.json");
 
-            Assert.AreEqual(0, game.Party.Members[0].XP);
-            game.Party.Members[0].AddXP(100);
-            Assert.AreEqual(100, game.Party.Members[0].XP);
+            Assert.AreEqual(0, game.Party[0].XP);
+            game.Party[0].AddXP(100);
+            Assert.AreEqual(100, game.Party[0].XP);
         }
 
         [TestMethod]
@@ -201,9 +201,9 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
 
-            Assert.IsFalse(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+            Assert.IsFalse(game.Party[0].Inventory.Contains(game.Items[0].Id));
             Assert.AreEqual(0, game.Party.ActiveQuests.Count());
-            Assert.AreEqual(100, game.Party.Members[0].XP);
+            Assert.AreEqual(100, game.Party[0].XP);
         }
     }
 }
