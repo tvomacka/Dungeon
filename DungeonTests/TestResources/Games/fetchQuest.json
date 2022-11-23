@@ -1,0 +1,83 @@
+{
+  "Party": {
+    "Location": {
+      "X": 0,
+      "Y": 0
+    },
+    "Members": [
+      {
+        "Name": "John Smith",
+        "Intelligence": 10
+      }
+    ],
+    "ActiveQuests": [0]
+  },
+  "Characters": [
+    {
+      "Name": "QuestNPC",
+      "Location": {
+        "X": 7,
+        "Y": 0
+      },
+      "Dialogue": 0
+    }
+  ],
+  "Dialogues": [
+    {
+      "Id": 0,
+      "InitialState": 0,
+      "States": [
+        {
+          "Id": 0,
+          "Text": "Greetings, do you have the quest item?",
+          "Options": [
+            {
+              "Text": "No.",
+              "TargetState": -1
+            },
+            {
+              "Text": "Yes!",
+              "TargetState": -1,
+              "Condition": {
+                "Subject": "Item",
+                "Test": "InInventory",
+                "Target": "0"
+              },
+              "Actions": [
+                {
+                  "ActionType": "FinishQuest",
+                  "ActionParameters": ["0"]
+                },
+                {
+                  "ActionType": "LoseItem",
+                  "ActionParameters": [ "0" ]
+                },
+                {
+                  "ActionType": "GainXP",
+                  "ActionParameters": [ "100" ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Items": [
+    {
+      "Id": 0,
+      "State": "OnGround",
+      "Location": {
+        "X": 3,
+        "Y": 0
+      },
+      "Name": "Quest Item"
+    }
+  ],
+  "Quests": [
+    {
+      "Id": 0,
+      "Name": "Fetch Quest Test"
+    }
+  ]
+}

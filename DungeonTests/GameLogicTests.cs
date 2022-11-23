@@ -2,6 +2,7 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
 using Dungeon.GameLogic;
+using Dungeon.GameLogic.Exceptions;
 
 namespace DungeonTests
 {
@@ -54,28 +55,28 @@ namespace DungeonTests
         public void Party_CanGetQuestFromNpcThroughDialogue()
         {
             LoadTestGame("test.json");
-            Assert.AreEqual(0, game.Quests.Count);
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count);
 
             var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(0);
 
-            Assert.AreEqual(1, game.Quests.Count);
+            Assert.AreEqual(1, game.Party.ActiveQuests.Count);
         }
 
         [TestMethod]
         public void Party_CanDeclineQuestFromNpcThroughDialogue()
         {
             LoadTestGame("test.json");
-            Assert.AreEqual(0, game.Quests.Count);
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count);
 
             var npc = game.GetCharacter("QuestNPC");
             game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
 
-            Assert.AreEqual(0, game.Quests.Count);
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count);
         }
 
         [TestMethod]
@@ -126,6 +127,83 @@ namespace DungeonTests
             var npc = game.GetCharacter("DialogueNPC");
             game.State = game.DialogueWith(npc);
             (game.State as Dialogue).ChooseOption(2);
+        }
+
+        [TestMethod]
+        public void Item_CanBeLoaded_FromJson()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(1, game.Items.Count);
+            Assert.AreEqual("Item 0: Quest Item", game.Items[0].ToString());
+        }
+
+        [TestMethod]
+        public void Quest_CanBeLoaded_FromJson()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(1, game.Quests.Count);
+            Assert.AreEqual("Quest 0: Fetch Quest Test", game.Quests[0].ToString());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(GameException))]
+        public void Item_CannotBePickedUp_FromDistance()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            game.PickUpItem(0, 0);
+        }
+
+        [TestMethod]
+        public void Item_CanBePickedUp_FromTheGround()
+        {
+            LoadTestGame("fetchQuest.json");
+            
+            game.Party.MoveTo(game.Items[0].Location);
+            game.PickUpItem(0, 0);
+
+            Assert.AreEqual("InInventory", game.Items[0].State);
+            Assert.IsTrue(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+        }
+
+        [TestMethod]
+        public void FetchQuest_WithoutTheQuestItem_CannotFinish()
+        {
+            LoadTestGame("fetchQuest.json");
+            var npc = game.GetCharacter("QuestNPC");
+            game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+            game.State = game.DialogueWith(npc);
+
+            Assert.AreEqual(1, (game.State as Dialogue).GetFilteredOptions().Count());
+        }
+
+        [TestMethod]
+        public void Character_CanGainXP()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(0, game.Party.Members[0].XP);
+            game.Party.Members[0].AddXP(100);
+            Assert.AreEqual(100, game.Party.Members[0].XP);
+        }
+
+        [TestMethod]
+        public void FetchQuest_Complete_Test()
+        {
+            LoadTestGame("fetchQuest.json");
+            game.Party.MoveTo(game.Items[0].Location);
+            game.PickUpItem(0, 0);
+
+            var npc = game.GetCharacter("QuestNPC");
+            game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+            game.State = game.DialogueWith(npc);
+            game.State = (game.State as Dialogue).ChooseOption(1);
+
+            Assert.IsFalse(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count());
+            Assert.AreEqual(100, game.Party.Members[0].XP);
         }
     }
 }

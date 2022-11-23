@@ -106,7 +106,12 @@ namespace Dungeon.GameLogic
 
         public bool IsSatisfied()
         {
-            return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+            if (Subject == "Intelligence" && Test == "GreaterThan")
+                return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+            else if (Subject == "Item" && Test == "InInventory")
+                return Game.Instance.Party.Members[0].Inventory.Contains(int.Parse(Target));
+
+            return false;
         }
 
         public override string ToString()
@@ -122,7 +127,14 @@ namespace Dungeon.GameLogic
 
         public void Execute()
         {
-            Game.Instance.Quests.Add(new Quest());
+            if (ActionType == "AcceptQuest")
+                Game.Instance.Party.ActiveQuests.Add(int.Parse(ActionParameters[0]));
+            else if (ActionType == "FinishQuest")
+                Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
+            else if (ActionType == "LoseItem")
+                Game.Instance.Party.Members[0].Inventory.Remove(int.Parse(ActionParameters[0]));
+            else if (ActionType == "GainXP")
+                Game.Instance.Party.Members[0].AddXP(int.Parse(ActionParameters[0]));
         }
     }
 }
