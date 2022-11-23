@@ -42,7 +42,15 @@
                 "Subject": "Item",
                 "Test": "InInventory",
                 "Target": "0"
-              }
+              },
+              "Actions": [
+                {
+                  "ActionType": "FinishQuest",
+                  "ActionParameters": [
+                    "0"
+                  ]
+                }
+              ]
             }
           ]
         }
