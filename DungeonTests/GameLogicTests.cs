@@ -203,7 +203,7 @@ namespace DungeonTests
 
             Assert.IsFalse(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
             Assert.AreEqual(0, game.Party.ActiveQuests.Count());
-            //Assert that the character received the xp reward
+            Assert.AreEqual(100, game.Party.Members[0].XP);
         }
     }
 }
