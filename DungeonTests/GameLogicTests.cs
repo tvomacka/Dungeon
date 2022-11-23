@@ -180,5 +180,16 @@ namespace DungeonTests
             //Assert that the party has no active quests
             //Assert that the character received the xp reward
         }
+
+        [TestMethod]
+        public void FetchQuest_WithoutTheQuestItem_CannotFinish()
+        {
+            LoadTestGame("fetchQuest.json");
+            var npc = game.GetCharacter("QuestNPC");
+            game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+            game.State = game.DialogueWith(npc);
+
+            Assert.AreEqual(1, (game.State as Dialogue).GetFilteredOptions().Count());
+        }
     }
 }
