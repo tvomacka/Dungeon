@@ -106,7 +106,12 @@ namespace Dungeon.GameLogic
 
         public bool IsSatisfied()
         {
-            return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+            if (Subject == "Intelligence" && Test == "GreaterThan")
+                return Game.Instance.Party.Members[0].Intelligence > int.Parse(Target);
+            else if (Subject == "Item" && Test == "InInventory")
+                return Game.Instance.Party.Members[0].Inventory.Contains(int.Parse(Target));
+
+            return false;
         }
 
         public override string ToString()
