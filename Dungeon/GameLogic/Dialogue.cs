@@ -127,7 +127,8 @@ namespace Dungeon.GameLogic
 
         public void Execute()
         {
-            Game.Instance.Party.ActiveQuests.Add(0);
+            if(ActionType == "AcceptQuest")
+                Game.Instance.Party.ActiveQuests.Add(int.Parse(ActionParameters[0]));
         }
     }
 }
