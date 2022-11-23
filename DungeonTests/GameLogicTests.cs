@@ -168,19 +168,6 @@ namespace DungeonTests
             Assert.IsTrue(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
         }
 
-        public void FetchQuest_Complete_Test()
-        {
-            //Load game
-            //Move party towards the quest item
-            //Pick up the item
-            //Move party towards the npc
-            //Start dialog with the npc
-            //Choose the dialog option to finish the quest
-            //Assert that the party lost the quest item
-            //Assert that the party has no active quests
-            //Assert that the character received the xp reward
-        }
-
         [TestMethod]
         public void FetchQuest_WithoutTheQuestItem_CannotFinish()
         {
@@ -190,6 +177,23 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
 
             Assert.AreEqual(1, (game.State as Dialogue).GetFilteredOptions().Count());
+        }
+
+        [TestMethod]
+        public void FetchQuest_Complete_Test()
+        {
+            LoadTestGame("fetchQuest.json");
+            game.Party.MoveTo(game.Items[0].Location);
+            game.PickUpItem(0, 0);
+
+            var npc = game.GetCharacter("QuestNPC");
+            game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+            game.State = game.DialogueWith(npc);
+            game.State = (game.State as Dialogue).ChooseOption(1);
+
+            Assert.IsFalse(game.Party.Members[0].Inventory.Contains(game.Items[0].Id));
+            Assert.AreEqual(0, game.Party.ActiveQuests.Count());
+            //Assert that the character received the xp reward
         }
     }
 }
