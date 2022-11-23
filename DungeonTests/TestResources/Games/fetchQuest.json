@@ -46,9 +46,11 @@
               "Actions": [
                 {
                   "ActionType": "FinishQuest",
-                  "ActionParameters": [
-                    "0"
-                  ]
+                  "ActionParameters": ["0"]
+                },
+                {
+                  "ActionType": "LoseItem",
+                  "ActionParameters":  ["0"]
                 }
               ]
             }
