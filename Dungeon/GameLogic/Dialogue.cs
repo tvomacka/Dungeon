@@ -131,6 +131,8 @@ namespace Dungeon.GameLogic
                 Game.Instance.Party.ActiveQuests.Add(int.Parse(ActionParameters[0]));
             else if (ActionType == "FinishQuest")
                 Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
+            else if (ActionType == "LoseItem")
+                Game.Instance.Party.Members[0].Inventory.Remove(int.Parse(ActionParameters[0]));
         }
     }
 }
