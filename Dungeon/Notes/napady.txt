@@ -1,0 +1,3 @@
+- Hrac by mel mit moznost vstoupit do nekolika ruznych frakci cca nekdy ke konci prvni tretiny hry
+- V ramci frakci by mely existovat side questy, ktere budou unikatni
+-- Kazda frakce muze mit vlastni hlavni dejovou linku, podobne jako maji guildy v Elder Scrolls
