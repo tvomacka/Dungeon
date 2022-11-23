@@ -50,7 +50,11 @@
                 },
                 {
                   "ActionType": "LoseItem",
-                  "ActionParameters":  ["0"]
+                  "ActionParameters": [ "0" ]
+                },
+                {
+                  "ActionType": "GainXP",
+                  "ActionParameters": [ "100" ]
                 }
               ]
             }
