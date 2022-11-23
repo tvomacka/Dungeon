@@ -133,6 +133,8 @@ namespace Dungeon.GameLogic
                 Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
             else if (ActionType == "LoseItem")
                 Game.Instance.Party.Members[0].Inventory.Remove(int.Parse(ActionParameters[0]));
+            else if (ActionType == "GainXP")
+                Game.Instance.Party.Members[0].AddXP(int.Parse(ActionParameters[0]));
         }
     }
 }
