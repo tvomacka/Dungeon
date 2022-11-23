@@ -180,6 +180,16 @@ namespace DungeonTests
         }
 
         [TestMethod]
+        public void Character_CanGainXP()
+        {
+            LoadTestGame("fetchQuest.json");
+
+            Assert.AreEqual(0, game.Party.Members[0].XP);
+            game.Party.Members[0].AddXP(100);
+            Assert.AreEqual(100, game.Party.Members[0].XP);
+        }
+
+        [TestMethod]
         public void FetchQuest_Complete_Test()
         {
             LoadTestGame("fetchQuest.json");
