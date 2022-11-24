@@ -11,7 +11,7 @@ namespace Dungeon.Dialogues
         {
             if (ActionType == "AcceptQuest")
                 Game.Instance.Party.ActiveQuests.Add(int.Parse(ActionParameters[0]));
-            else if (ActionType == "FinishQuest")
+            else if (ActionType == "CompleteQuest")
                 Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
             else if (ActionType == "LoseItem")
                 Game.Instance.Party[0].Inventory.Remove(int.Parse(ActionParameters[0]));

@@ -45,8 +45,8 @@
               },
               "Actions": [
                 {
-                  "ActionType": "FinishQuest",
-                  "ActionParameters": ["0"]
+                  "ActionType": "CompleteQuest",
+                  "ActionParameters": [ "0" ]
                 },
                 {
                   "ActionType": "LoseItem",
