@@ -2,10 +2,15 @@
 {
     public class PlayerCharacter
     {
+        #region General
         public string Name { get; set; }
-        public int Intelligence { get; set; }
-        public List<int> Inventory { get; set; }
         public int XP { get; set; }
+        public List<int> Inventory { get; set; }
+        #endregion
+
+        #region Attributes
+        public int Intelligence { get; set; }
+        #endregion
 
         public PlayerCharacter()
         {
