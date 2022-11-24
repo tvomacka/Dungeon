@@ -9,7 +9,7 @@ using static System.Windows.Forms.Design.AxImporter;
 
 namespace Dungeon.Dialogues
 {
-    public class Dialogue : IInteraction
+    public partial class Dialogue : IInteraction
     {
         public int Id { get; set; }
         public string Text { get; set; }
@@ -63,24 +63,6 @@ namespace Dungeon.Dialogues
         {
             var state = GetCurrentState();
             return state.Options.Where(o => o.Condition == null || o.Condition.IsSatisfied());
-        }
-
-        public class DialogueState
-        {
-            public int Id { get; set; }
-            public string Text { get; set; }
-            public DialogueOption[] Options { get; set; }
-
-            public override string ToString()
-            {
-                var text = Text;
-                var optionId = 0;
-                foreach (var option in Options)
-                {
-                    text += $"\n\t{optionId++}: {option}";
-                }
-                return text;
-            }
         }
 
         public class DialogueOption
