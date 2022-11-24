@@ -9,7 +9,7 @@ using static System.Windows.Forms.Design.AxImporter;
 
 namespace Dungeon.Dialogues
 {
-    public partial class Dialogue : IInteraction
+    public class Dialogue : IInteraction
     {
         public int Id { get; set; }
         public string Text { get; set; }
