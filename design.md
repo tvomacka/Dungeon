@@ -1,2 +1,3 @@
 - Chceme asi isometricke 3D podobne jako v prvnich dilech falloutu
 - Ctverecky/sestiuhelniky?
+- MonoGame (open source XNA)
