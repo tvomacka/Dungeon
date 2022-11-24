@@ -1,6 +1,6 @@
 ﻿using Dungeon.GameLogic;
 
-namespace Dungeon.Dialogues
+namespace Dungeon.GameLogic.Dialogues
 {
     public class DialogueAction
     {

@@ -1,8 +1,8 @@
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
-using Dungeon.Dialogues;
 using Dungeon.GameLogic;
+using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Exceptions;
 
 namespace DungeonTests

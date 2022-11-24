@@ -1,6 +1,6 @@
-﻿using static Dungeon.Dialogues.Dialogue;
+﻿using static Dungeon.GameLogic.Dialogues.Dialogue;
 
-namespace Dungeon.Dialogues
+namespace Dungeon.GameLogic.Dialogues
 {
     public class DialogueState
     {

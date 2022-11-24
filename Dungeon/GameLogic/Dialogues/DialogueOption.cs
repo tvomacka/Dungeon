@@ -1,4 +1,4 @@
-﻿namespace Dungeon.Dialogues
+﻿namespace Dungeon.GameLogic.Dialogues
 {
     public class DialogueOption
     {

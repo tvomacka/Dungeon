@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dungeon.Dialogues;
+using Dungeon.GameLogic.Dialogues;
 
 namespace Dungeon.GameLogic
 {

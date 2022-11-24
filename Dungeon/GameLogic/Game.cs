@@ -1,4 +1,4 @@
-﻿using Dungeon.Dialogues;
+﻿using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Exceptions;
 using System;
 using System.Collections.Generic;

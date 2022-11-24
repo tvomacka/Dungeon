@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Dungeon.GameLogic;
 using static System.Windows.Forms.Design.AxImporter;
 
-namespace Dungeon.Dialogues
+namespace Dungeon.GameLogic.Dialogues
 {
     public class Dialogue : IInteraction
     {
