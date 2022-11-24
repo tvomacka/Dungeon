@@ -3,9 +3,12 @@ A simple top-down 2D adventure/RPG game made using a TDD approach.
 
 ## Player characters
 ### Attributes
-|Attribute|Short|Description|
-|---|---|---|
-|Intelligence|INT|...|
+|Attribute|Short|Description|Combat Effect|Dialogue Effect|Auxiliary Effect|
+|---|---|---|---|---|---|
+|Strength|STR|...|Melee Damage|Threats|Heavier weapons and armor|
+|Intelligence|INT|...|Spell Damage|Cleverness|More difficult spells|
+|Dexterity|DEX|...|Chance to hit/dodge|...|...|
+|Stamina|STA|...|Depleted by attacks and defense|...|More life points|
 ## NPCs
 
 ## Combat
