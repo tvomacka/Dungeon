@@ -1,2 +1,2 @@
-Chceme asi isometricke 3D podobne jako v prvnich dilech falloutu
-Ctverecky/sestiuhelniky?
+- Chceme asi isometricke 3D podobne jako v prvnich dilech falloutu
+- Ctverecky/sestiuhelniky?
