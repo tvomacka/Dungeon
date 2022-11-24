@@ -1,4 +1,5 @@
-﻿using Dungeon.GameLogic.Exceptions;
+﻿using Dungeon.Dialogues;
+using Dungeon.GameLogic.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

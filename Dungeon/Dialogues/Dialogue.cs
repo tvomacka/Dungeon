@@ -4,9 +4,10 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using Dungeon.GameLogic;
 using static System.Windows.Forms.Design.AxImporter;
 
-namespace Dungeon.GameLogic
+namespace Dungeon.Dialogues
 {
     public class Dialogue : IInteraction
     {
@@ -20,7 +21,7 @@ namespace Dungeon.GameLogic
 
         public Dialogue StartDialogue()
         {
-            this.state = InitialState;
+            state = InitialState;
             return this;
         }
 
@@ -36,7 +37,7 @@ namespace Dungeon.GameLogic
             {
                 throw new ArgumentException($"You are trying to choose a dialog option with unsatisfied condition.\n\tOption: {option}\n\tCondition: {option.Condition}");
             }
-            if(option.Actions != null)
+            if (option.Actions != null)
             {
                 foreach (var action in option.Actions)
                 {
@@ -46,7 +47,7 @@ namespace Dungeon.GameLogic
             var newState = option.TargetState;
             if (0 <= newState && newState < States.Length)
             {
-                this.state = newState;
+                state = newState;
                 return this;
             }
 
@@ -76,7 +77,7 @@ namespace Dungeon.GameLogic
                 var optionId = 0;
                 foreach (var option in Options)
                 {
-                    text += ($"\n\t{optionId++}: {option}");
+                    text += $"\n\t{optionId++}: {option}";
                 }
                 return text;
             }
@@ -123,7 +124,7 @@ namespace Dungeon.GameLogic
     public class DialogueAction
     {
         public string ActionType { get; set; }
-        public string[] ActionParameters {get; set;}
+        public string[] ActionParameters { get; set; }
 
         public void Execute()
         {

@@ -1,6 +1,7 @@
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
+using Dungeon.Dialogues;
 using Dungeon.GameLogic;
 using Dungeon.GameLogic.Exceptions;
 
