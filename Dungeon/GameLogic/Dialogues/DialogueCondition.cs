@@ -13,7 +13,7 @@ namespace Dungeon.GameLogic.Dialogues
             if (Subject == "Intelligence" && Test == "GreaterThan")
                 return playerCharacter.Intelligence > int.Parse(Target);
             else if (Subject == "Item" && Test == "InInventory")
-                return Game.Instance.Party[0].Inventory.Contains(int.Parse(Target));
+                return playerCharacter.Inventory.Contains(int.Parse(Target));
 
             return false;
         }
