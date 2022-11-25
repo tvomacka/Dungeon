@@ -1,0 +1,17 @@
+Level:
+Typ: 
+Zadává: Pokoutný prostředník
+Téma: 
+	Hráči je doporučena možnost snadného přivýdělku, který není tak úplně legální. Je jim podsunuta myšlenka, že pracují pro cech zlodějů, což není tak úplně pravda (viz hlavní linka). Jedná se o proniknutí do knihovny místní univerzity, nalezení tajného sklepení, které bylo již před mnoha lety zapomenuto, nalezení a donesení starých svitků. Cokoliv cenného, co hráč najde si může nechat + finanční odměna.
+	Místo je magicky střeženo - pasti + golemové. Magie je však příliš stará a vyčpělá - všechny ochranné prostředky nyní pracují pouze se zlomkem své původní síly.
+Postup:
+	1: hráč dojde k rybníku
+	2: v bahně nasbírá dostatečné množství ryb
+	3: odnese ryby hospodskému
+Odměna: 
+	- peníze
+	- magické předměty střední síly
+	- unikátní kouzla střední úrovně
+Poznámka:
+	Úkol nepřímo souvisí s hlavní dějovou linkou (viz hlavní linka).
+	Původně se jednalo o depozitář magických předmětů a kouzel, ale pečlivou a velice dlouhodobou manipulací veřejného mínění došlo k nejprve k jeho uzavření a následně i zapomenutí. To vše kvůli tomu, že obsahuje jeden díl skládačky potřebný k tomu, aby se mág mohl stát lichem. Kdysi dávno bylo vedením univerzity rozhodnuto, že je příliš cenný, než aby byl zničen, ale příliš nebezpečný, než aby byl komukoliv dostupný.
