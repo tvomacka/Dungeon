@@ -1,0 +1,12 @@
+Level:
+Typ: 
+Zadává:
+Téma: 
+	Jedna z postav je kletbou proměněna na kouzelnou zbraň (meč) a je potřeba ji donést do dungeonu a tam ji položit na oltář, aby se proměnila zpět.
+  Musí se jednat o velice dobrou zbraň, dost možná nejlepší, kterou hráč zatím ve hře dostal. S postavou ve formě meče lze vést dialog a na konci questu je možné ji zradit.
+  Pokud si hráč vybere, že meč na oltář nepoloží, může si ho ponechat, ale při boji s prvním dalším bossem ho meč zradí. Stane se prokletým a odmítne mu v souboji pomáhat.  
+Postup:
+	
+Odměna: 
+
+Poznámka:
