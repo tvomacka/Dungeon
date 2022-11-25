@@ -5,9 +5,7 @@ Téma:
 	Hráči je doporučena možnost snadného přivýdělku, který není tak úplně legální. Je jim podsunuta myšlenka, že pracují pro cech zlodějů, což není tak úplně pravda (viz hlavní linka). Jedná se o proniknutí do knihovny místní univerzity, nalezení tajného sklepení, které bylo již před mnoha lety zapomenuto, nalezení a donesení starých svitků. Cokoliv cenného, co hráč najde si může nechat + finanční odměna.
 	Místo je magicky střeženo - pasti + golemové. Magie je však příliš stará a vyčpělá - všechny ochranné prostředky nyní pracují pouze se zlomkem své původní síly.
 Postup:
-	1: hráč dojde k rybníku
-	2: v bahně nasbírá dostatečné množství ryb
-	3: odnese ryby hospodskému
+	1: 
 Odměna: 
 	- peníze
 	- magické předměty střední síly
