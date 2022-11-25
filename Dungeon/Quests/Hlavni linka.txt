@@ -1,0 +1,12 @@
+Level:
+Typ: Hlavní dějová linka
+Zadává:
+Téma: 
+	V zemi zuří skrytý boj o moc poté, co současný panovník zemřel a o jeho následníkovi zatím nebylo rozhodnuto. Jedním z nejmocnějších hráčů v boji o trůn je mág, který pracuje v zákulisí a snaží se skrytě tlačit na uvolněné místo svou loutku. To podniká s úmyslem získat přístup k přísně střeženým artefaktům, které by mu pomohly stát se lichem a začít tak cestu ke světovládě.
+Postup:
+	
+Odměna: 
+	
+Poznámka:
+	- Jeden z artefaktů se kdysi dávno ztratil v místním rybníce. To se podařilo mágovi zjistit a přes řetězec prostředníků pro něj vyslal nic netušící pohůnky. Ti byli při vypouštění rybníka přistiženi statkářem a odehnáni. Postavy mohou tento předmět v rybníce najít v rámci úkolu "rybník".
+	- Jeden z artefaktů se nachází v zapomenutém podzemním patře univerzitní knihovny. Tam jsou postavy vyslány jako nic netušící pohůnci v rámci úkolu "knihovna".
