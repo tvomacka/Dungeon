@@ -217,5 +217,16 @@ namespace DungeonTests
 
             Assert.AreEqual(20, game.Party[0].Strength);
         }
+
+        [TestMethod]
+        public void PlayerCharacter_HasDexterityhAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Dexterity = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Dexterity);
+        }
     }
 }
