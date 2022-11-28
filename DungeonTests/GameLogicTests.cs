@@ -206,5 +206,16 @@ namespace DungeonTests
             Assert.AreEqual(0, game.Party.ActiveQuests.Count());
             Assert.AreEqual(100, game.Party[0].XP);
         }
+
+        [TestMethod]
+        public void PlayerCharacter_HasStrengthAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Strength = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Strength);
+        }
     }
 }
