@@ -11,15 +11,19 @@ For example, if (*Subject*, *Target*, *Test*) is (Intelligence, 10, GreaterThan)
 *Test* will often be parsed as a number type and must follow the required formatting. If used as a string, it is case-insensitive as well.  
 
 ### Test Matrix
-|Condition|Attributes|Item|
-|:---:|:---:|:---:|
-|GreaterThan|X|-|
-|GreaterThanOrEqual|X|-|
-|LessThan|X|-|
-|LessThanOrEqual|X|-|
-|Equal|X|-|
-|NotEqual|X|-|
-|InInventory|-|X|
+|Condition|Attributes|Item|Quest|
+|:---:|:---:|:---:|:---:|
+|GreaterThan|X|-|-|
+|GreaterThanOrEqual|X|-|-|
+|LessThan|X|-|-|
+|LessThanOrEqual|X|-|-|
+|Equal|X|-|-|
+|NotEqual|X|-|-|
+|InInventory|-|X|-|
+|Assigned|-|-|X|
+|Unassigned|-|-|X|
+|Completed|-|-|X|
+|Failed|-|-|X|
 
 <details><summary>Details</summary>
   <p> The allowed attributes are "Intelligence".</p>
