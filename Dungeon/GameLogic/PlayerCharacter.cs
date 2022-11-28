@@ -14,6 +14,8 @@
         public int Dexterity { get; set; }
 
         public int Intelligence { get; set; }
+
+        public int Health { get; set; }
         #endregion
 
         public PlayerCharacter()

@@ -219,7 +219,7 @@ namespace DungeonTests
         }
 
         [TestMethod]
-        public void PlayerCharacter_HasDexterityhAttribute()
+        public void PlayerCharacter_HasDexterityAttribute()
         {
             game.Party.Members.Add(new PlayerCharacter()
             {
@@ -227,6 +227,17 @@ namespace DungeonTests
             });
 
             Assert.AreEqual(20, game.Party[0].Dexterity);
+        }
+
+        [TestMethod]
+        public void PlayerCharacter_HasHealthAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Health = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Health);
         }
     }
 }
