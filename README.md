@@ -3,13 +3,25 @@ A simple top-down 2D adventure/RPG game made using a TDD approach.
 Character/gameplay rules based on GURPS 4e.
 
 ## Player characters
-### Attributes
+### Primary Attributes
 |Attribute|Short|Description|Combat Effect|Dialogue Effect|Auxiliary Effect|
 |---|---|---|---|---|---|
 |Strength|ST|...|Melee Damage|Threats|Heavier weapons and armor|
 |Dexterity|DX|...|Chance to hit/dodge|...|...|
 |Intelligence|IQ|...|Spell Damage|Cleverness|More difficult spells|
 |Health|HT|...|Fatigue used for stronger attacks, health used to asbsorb damage|...|More life/fatigue points|
+
+### Secondary Characteristics
+- Damage (Dmg)
+- Basic Lift (BL)
+- Hit Points (HP)
+- Will
+- Perception (Per)
+- Fatigue Points (FP)
+- Basic Speed
+- Basic Move
+- Build
+- Size Modifier
 ## NPCs
 
 ## Combat
