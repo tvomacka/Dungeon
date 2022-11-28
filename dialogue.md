@@ -28,3 +28,6 @@ For example, if (*Subject*, *Target*, *Test*) is (Intelligence, 10, GreaterThan)
 <details><summary>Details</summary>
   <p> The allowed attributes are "Intelligence".</p>
 </details>
+
+## Actions
+TODO...
