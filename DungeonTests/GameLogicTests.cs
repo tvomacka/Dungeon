@@ -206,5 +206,38 @@ namespace DungeonTests
             Assert.AreEqual(0, game.Party.ActiveQuests.Count());
             Assert.AreEqual(100, game.Party[0].XP);
         }
+
+        [TestMethod]
+        public void PlayerCharacter_HasStrengthAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Strength = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Strength);
+        }
+
+        [TestMethod]
+        public void PlayerCharacter_HasDexterityAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Dexterity = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Dexterity);
+        }
+
+        [TestMethod]
+        public void PlayerCharacter_HasHealthAttribute()
+        {
+            game.Party.Members.Add(new PlayerCharacter()
+            {
+                Health = 20
+            });
+
+            Assert.AreEqual(20, game.Party[0].Health);
+        }
     }
 }

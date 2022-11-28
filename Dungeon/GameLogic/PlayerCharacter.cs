@@ -9,7 +9,13 @@
         #endregion
 
         #region Attributes
+        public int Strength { get; set; }
+
+        public int Dexterity { get; set; }
+
         public int Intelligence { get; set; }
+
+        public int Health { get; set; }
         #endregion
 
         public PlayerCharacter()
