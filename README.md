@@ -6,10 +6,10 @@ Character/gameplay rules based on GURPS 4e.
 ### Attributes
 |Attribute|Short|Description|Combat Effect|Dialogue Effect|Auxiliary Effect|
 |---|---|---|---|---|---|
-|Strength|STR|...|Melee Damage|Threats|Heavier weapons and armor|
-|Dexterity|DEX|...|Chance to hit/dodge|...|...|
-|Intelligence|INT|...|Spell Damage|Cleverness|More difficult spells|
-|Vitality|VIT|...|Fatigue used for stronger attacks, health used to asbsorb damage|...|More life/fatigue points|
+|Strength|ST|...|Melee Damage|Threats|Heavier weapons and armor|
+|Dexterity|DX|...|Chance to hit/dodge|...|...|
+|Intelligence|IQ|...|Spell Damage|Cleverness|More difficult spells|
+|Health|HT|...|Fatigue used for stronger attacks, health used to asbsorb damage|...|More life/fatigue points|
 ## NPCs
 
 ## Combat
