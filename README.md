@@ -1,14 +1,15 @@
 # Dungeon
 A simple top-down 2D adventure/RPG game made using a TDD approach.
+Character/gameplay rules based on GURPS 4e.
 
 ## Player characters
 ### Attributes
 |Attribute|Short|Description|Combat Effect|Dialogue Effect|Auxiliary Effect|
 |---|---|---|---|---|---|
 |Strength|STR|...|Melee Damage|Threats|Heavier weapons and armor|
-|Intelligence|INT|...|Spell Damage|Cleverness|More difficult spells|
 |Dexterity|DEX|...|Chance to hit/dodge|...|...|
-|Stamina|STA|...|Depleted by attacks and defense|...|More life points|
+|Intelligence|INT|...|Spell Damage|Cleverness|More difficult spells|
+|Vitality|VIT|...|Fatigue used for stronger attacks, health used to asbsorb damage|...|More life/fatigue points|
 ## NPCs
 
 ## Combat
