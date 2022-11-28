@@ -14,6 +14,11 @@ For example, if (*Subject*, *Target*, *Test*) is (Intelligence, 10, GreaterThan)
 |Condition|Attributes|Item|
 |:---:|:---:|:---:|
 |GreaterThan|X|-|
+|GreaterThanOrEqual|X|-|
+|LessThan|X|-|
+|LessThanOrEqual|X|-|
+|Equal|X|-|
+|NotEqual|X|-|
 |InInventory|-|X|
 
 <details><summary>Details</summary>
