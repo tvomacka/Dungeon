@@ -39,8 +39,8 @@
               "Text": "Yes!",
               "TargetState": -1,
               "Condition": {
-                "Subject": "Item",
-                "Test": "InInventory",
+                "Subject": "Inventory",
+                "Test": "Contains",
                 "Target": "0"
               },
               "Actions": [
