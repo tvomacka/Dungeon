@@ -33,7 +33,7 @@ namespace Dungeon.GameLogic.Dialogues
         public IInteraction ChooseOption(int v)
         {
             var option = GetCurrentState().Options[v];
-            if (option.Condition != null && !option.Condition.IsSatisfied())
+            if (option.Condition != null && !option.Condition.IsSatisfied(Game.Instance.Party[0]))
             {
                 throw new ArgumentException($"You are trying to choose a dialog option with unsatisfied condition.\n\tOption: {option}\n\tCondition: {option.Condition}");
             }
@@ -62,7 +62,7 @@ namespace Dungeon.GameLogic.Dialogues
         public IEnumerable<DialogueOption> GetFilteredOptions()
         {
             var state = GetCurrentState();
-            return state.Options.Where(o => o.Condition == null || o.Condition.IsSatisfied());
+            return state.Options.Where(o => o.Condition == null || o.Condition.IsSatisfied(Game.Instance.Party[0]));
         }
     }
 }
