@@ -28,6 +28,14 @@ Character/gameplay rules based on GURPS 4e.
 - *Build: Cosmetic only, may be mentioned in the description or shown in the art but has no impact on the gameplay directly, will not implement.*
 - *Size Modifier: Affects chance to hit, will implement as a part of the racial templates but user will not be able to directly affect it.*
 
+### Advantages and Disadvantages
+
+### Skills
+
+### Spells
+
+### Reaction Modifiers
+
 [Details](playercharacters.md)
 
 ## Game mechanics
