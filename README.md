@@ -61,6 +61,11 @@ graph TD;
     Character-->Explore;
 ```
 
+### Character Progression
+
+Characters get experience points (XP) for completing quests and proceeding through the game. This may include killing some NPCs/Monsters, but no XP is given for just killing opponents.
+[Details](progression.md)
+
 ### Dialogue
 
 Dialogue traverses through individual states, each state consists of a text and a list of options.
