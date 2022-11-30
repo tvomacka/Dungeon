@@ -54,7 +54,10 @@ namespace DungeonTests
         [TestMethod]
         public void HexagonalGrid_Cells_CanContainValue()
         {
+            var grid = new HexGrid<int>(5, 5);
+            grid[1, 3] = 7;
 
+            Assert.AreEqual(grid[1, 3], 7);
         }
     }
 }
