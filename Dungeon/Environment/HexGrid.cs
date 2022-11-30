@@ -46,13 +46,11 @@ namespace Dungeon.Environment
 
         public IEnumerable<Point> GetNeighbors(int x, int y)
         {
-            if (x < 0 || Width <= x)
+            if(!IsInsideGrid(x, y))
             {
-                throw new ArgumentException($"{nameof(x)}-coordinate must be between 0 and {Width - 1}.");
-            }
-            if (y < 0 || Height <= y)
-            {
-                throw new ArgumentException($"{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
+                throw new ArgumentException($"The provided coordinates {nameof(x)}, {nameof(y)} are outside this grid.\n" +
+                    $"\t{nameof(x)}-coordinate must be between 0 and {Width - 1}.\n" +
+                    $"\t{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
             }
 
             List<Point> neighbors = new List<Point>();
