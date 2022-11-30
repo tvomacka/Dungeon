@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon.Environment
 {
-    public class HexGrid
+    public class HexGrid<T>
     {
         private readonly IEnumerable<Point> XEvenNeighborModifiers = new List<Point>() {
             new Point(-1, -1),
@@ -26,22 +26,21 @@ namespace Dungeon.Environment
             new Point(0, -1)
         };
 
+        private T[,] cells;
+
         public int Width
         {
-            get;
-            private set;
+            get => cells.GetLength(0);
         }
 
         public int Height
         {
-            get;
-            private set;
+            get => cells.GetLength(1);
         }
 
         public HexGrid(int width, int height)
         {
-            Width = width;
-            Height = height;
+            cells = new T[width, height];
         }
 
         public IEnumerable<Point> GetNeighbors(int x, int y)

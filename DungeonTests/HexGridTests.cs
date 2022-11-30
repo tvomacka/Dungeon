@@ -16,7 +16,7 @@ namespace DungeonTests
         [TestMethod]
         public void HexagonalGrid_Cell2_2_HasCorrectNeighbors()
         {
-            var grid = new HexGrid(5, 5);
+            var grid = new HexGrid<int>(5, 5);
             var neighbors = grid.GetNeighbors(2, 2);
             
             var n = string.Join(" ", neighbors);
@@ -26,7 +26,7 @@ namespace DungeonTests
         [TestMethod]
         public void HexagonalGrid_Cell3_2_HasCorrectNeighbors()
         {
-            var grid = new HexGrid(5, 5);
+            var grid = new HexGrid<int>(5, 5);
             var neighbors = grid.GetNeighbors(3, 2);
 
             var n = string.Join(" ", neighbors);
@@ -36,7 +36,7 @@ namespace DungeonTests
         [TestMethod]
         public void HexagonalGrid_Cell_0_0_HasTwoNeighbors()
         {
-            var grid = new HexGrid(5, 5);
+            var grid = new HexGrid<int>(5, 5);
             var neighbors = grid.GetNeighbors(0, 0);
 
             var n = string.Join(" ", neighbors);
@@ -47,8 +47,14 @@ namespace DungeonTests
         [ExpectedException(typeof(ArgumentException))]
         public void HexagonalGrid_CellOutOfBounds_Explodes()
         {
-            var grid = new HexGrid(3, 3);
+            var grid = new HexGrid<int>(3, 3);
             var neighbors = grid.GetNeighbors(5, 0);
+        }
+
+        [TestMethod]
+        public void HexagonalGrid_Cells_CanContainValue()
+        {
+
         }
     }
 }
