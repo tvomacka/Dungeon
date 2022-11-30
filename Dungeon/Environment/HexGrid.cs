@@ -8,6 +8,24 @@ namespace Dungeon.Environment
 {
     public class HexGrid
     {
+        private readonly IEnumerable<Point> XEvenNeighborModifiers = new List<Point>() {
+            new Point(-1, -1),
+            new Point(-1, 0),
+            new Point(0, 1),
+            new Point(1, 0),
+            new Point(1, -1),
+            new Point(0, -1)
+        };
+
+        private readonly IEnumerable<Point> XOddNeighborModifiers = new List<Point>() {
+            new Point(-1, 0),
+            new Point(-1, 1),
+            new Point(0, 1),
+            new Point(1, 1),
+            new Point(1, 0),
+            new Point(0, -1)
+        };
+
         public int Width
         {
             get;
@@ -60,25 +78,11 @@ namespace Dungeon.Environment
         {
             if (x % 2 == 0)
             {
-                return new List<Point>() {
-                    new Point(-1, -1),
-                    new Point(-1, 0),
-                    new Point(0, 1),
-                    new Point(1, 0),
-                    new Point(1, -1),
-                    new Point(0, -1)
-                };
+                return XEvenNeighborModifiers;
             }
             else
             {
-                return new List<Point>() {
-                    new Point(-1, 0),
-                    new Point(-1, 1),
-                    new Point(0, 1),
-                    new Point(1, 1),
-                    new Point(1, 0),
-                    new Point(0, -1)
-                };
+                return XOddNeighborModifiers;
             }
         }
     }
