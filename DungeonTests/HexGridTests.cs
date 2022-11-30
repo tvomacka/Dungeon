@@ -34,6 +34,16 @@ namespace DungeonTests
         }
 
         [TestMethod]
+        public void HexagonalGrid_Cell_0_0_HasTwoNeighbors()
+        {
+            var grid = new HexGrid(5, 5);
+            var neighbors = grid.GetNeighbors(0, 0);
+
+            var n = string.Join(" ", neighbors);
+            Assert.AreEqual("{X=0,Y=1} {X=1,Y=0}", n);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void HexagonalGrid_CellOutOfBounds_Explodes()
         {

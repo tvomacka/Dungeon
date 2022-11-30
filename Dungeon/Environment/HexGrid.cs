@@ -37,26 +37,47 @@ namespace Dungeon.Environment
                 throw new ArgumentException($"{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
             }
 
+            List<Point> neighbors = new List<Point>();
+
+            foreach(var m in GetNeighborIndexModifiers(x, y))
+            {
+                if(IsInsideGrid(x + m.X, y + m.Y))
+                {
+                    neighbors.Add(new Point(x + m.X, y + m.Y));
+                }
+            }
+
+            return neighbors;
+
+        }
+
+        private bool IsInsideGrid(int x, int y)
+        {
+            return 0 <= x && x < Width && 0 <= y && y < Height;
+        }
+
+        private IEnumerable<Point> GetNeighborIndexModifiers(int x, int y)
+        {
             if (x % 2 == 0)
             {
                 return new List<Point>() {
-                    new Point(x - 1, y - 1),
-                    new Point(x - 1, y),
-                    new Point(x, y + 1),
-                    new Point(x + 1, y),
-                    new Point(x + 1, y - 1),
-                    new Point(x, y - 1)
+                    new Point(-1, -1),
+                    new Point(-1, 0),
+                    new Point(0, 1),
+                    new Point(1, 0),
+                    new Point(1, -1),
+                    new Point(0, -1)
                 };
             }
             else
             {
                 return new List<Point>() {
-                    new Point(x - 1, y),
-                    new Point(x - 1, y + 1),
-                    new Point(x, y + 1),
-                    new Point(x + 1, y + 1),
-                    new Point(x + 1, y),
-                    new Point(x, y - 1)
+                    new Point(-1, 0),
+                    new Point(-1, 1),
+                    new Point(0, 1),
+                    new Point(1, 1),
+                    new Point(1, 0),
+                    new Point(0, -1)
                 };
             }
         }
