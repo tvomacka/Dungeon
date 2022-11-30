@@ -210,34 +210,34 @@ namespace DungeonTests
         [TestMethod]
         public void PlayerCharacter_HasStrengthAttribute()
         {
-            game.Party.Members.Add(new PlayerCharacter()
+            var pc = new PlayerCharacter()
             {
                 Strength = 20
-            });
+            };
 
-            Assert.AreEqual(20, game.Party[0].Strength);
+            Assert.AreEqual(20, pc.Strength);
         }
 
         [TestMethod]
         public void PlayerCharacter_HasDexterityAttribute()
         {
-            game.Party.Members.Add(new PlayerCharacter()
+            var pc = new PlayerCharacter()
             {
                 Dexterity = 20
-            });
+            };
 
-            Assert.AreEqual(20, game.Party[0].Dexterity);
+            Assert.AreEqual(20, pc.Dexterity);
         }
 
         [TestMethod]
         public void PlayerCharacter_HasHealthAttribute()
         {
-            game.Party.Members.Add(new PlayerCharacter()
+            var pc = new PlayerCharacter()
             {
                 Health = 20
-            });
+            };
 
-            Assert.AreEqual(20, game.Party[0].Health);
+            Assert.AreEqual(20, pc.Health);
         }
     }
 }
