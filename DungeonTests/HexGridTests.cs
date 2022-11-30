@@ -32,5 +32,13 @@ namespace DungeonTests
             var n = string.Join(" ", neighbors);
             Assert.AreEqual("{X=2,Y=2} {X=2,Y=3} {X=3,Y=3} {X=4,Y=3} {X=4,Y=2} {X=3,Y=1}", n);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void HexagonalGrid_CellOutOfBounds_Explodes()
+        {
+            var grid = new HexGrid(3, 3);
+            var neighbors = grid.GetNeighbors(5, 0);
+        }
     }
 }

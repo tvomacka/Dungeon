@@ -28,6 +28,15 @@ namespace Dungeon.Environment
 
         public IEnumerable<Point> GetNeighbors(int x, int y)
         {
+            if (x < 0 || Width <= x)
+            {
+                throw new ArgumentException($"{nameof(x)}-coordinate must be between 0 and {Width - 1}.");
+            }
+            if (y < 0 || Height <= y)
+            {
+                throw new ArgumentException($"{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
+            }
+
             if (x % 2 == 0)
             {
                 return new List<Point>() {
