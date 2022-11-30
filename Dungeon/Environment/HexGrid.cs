@@ -38,6 +38,12 @@ namespace Dungeon.Environment
             get => cells.GetLength(1);
         }
 
+        public T this[int x, int y]
+        {
+            get => cells[x, y];
+            set => cells[x, y] = value;
+        }
+
         public HexGrid(int width, int height)
         {
             cells = new T[width, height];
