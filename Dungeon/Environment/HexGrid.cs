@@ -8,13 +8,13 @@ namespace Dungeon.Environment
 {
     public class HexGrid
     {
-        public int Width 
-        { 
+        public int Width
+        {
             get;
             private set;
         }
-        
-        public int Height 
+
+        public int Height
         {
             get;
             private set;
@@ -28,14 +28,28 @@ namespace Dungeon.Environment
 
         public IEnumerable<Point> GetNeighbors(int x, int y)
         {
-            return new List<Point>() { 
-                new Point(x - 1, y -1),
-                new Point(x - 1, y),
-                new Point(x, y + 1),
-                new Point(x + 1, y),
-                new Point(x + 1, y -1),
-                new Point(x, y -1)
-            };
+            if (x % 2 == 0)
+            {
+                return new List<Point>() {
+                    new Point(x - 1, y - 1),
+                    new Point(x - 1, y),
+                    new Point(x, y + 1),
+                    new Point(x + 1, y),
+                    new Point(x + 1, y - 1),
+                    new Point(x, y - 1)
+                };
+            }
+            else
+            {
+                return new List<Point>() {
+                    new Point(x - 1, y),
+                    new Point(x - 1, y + 1),
+                    new Point(x, y + 1),
+                    new Point(x + 1, y + 1),
+                    new Point(x + 1, y),
+                    new Point(x, y - 1)
+                };
+            }
         }
     }
 }
