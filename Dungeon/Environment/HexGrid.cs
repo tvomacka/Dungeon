@@ -91,12 +91,68 @@ namespace Dungeon.Environment
 
         public List<Point> GetPath(int startX, int startY, int destX, int destY)
         {
-            return new List<Point>()
+            var distance = InitializeDistanceMatrix();
+            distance[startX, startY] = 0;
+            var q = new Queue<Point>();
+            q.Enqueue(new Point(startX, startY));
+
+            while (q.Count > 0)
             {
-                new Point(0, 2),
-                new Point(1, 2),
-                new Point(2, 2)
-            };
+                var p = q.Dequeue();
+                foreach (var n in GetNeighbors(p.X, p.Y))
+                {
+                    if (distance[p.X, p.Y] < distance[n.X, n.Y])
+                    {
+                        distance[n.X, n.Y] = distance[p.X, p.Y] + 1;
+                        q.Enqueue(n);
+                    }
+                    if (p.X == destX && p.Y == destY)
+                    {
+                        return ConstructPath(distance, destX, destY);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private List<Point> ConstructPath(int[,] distance, int destX, int destY)
+        {
+            var path = new List<Point>();
+            var current = new Point(destX, destY);
+            var distanceToOrigin = distance[destX, destY];
+            do
+            {
+                path.Add(current);
+                foreach (var neighbor in GetNeighbors(current.X, current.Y))
+                {
+                    if (distance[neighbor.X, neighbor.Y] == distanceToOrigin - 1)
+                    {
+                        current = neighbor;
+                        distanceToOrigin--;
+                        break;
+                    }
+                }
+            } while (0 < distanceToOrigin);
+
+            path.Add(current);
+            path.Reverse();
+
+            return path;
+        }
+
+        private int[,] InitializeDistanceMatrix()
+        {
+            int[,] distance = new int[Width, Height];
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    distance[i, j] = int.MaxValue;
+                }
+            }
+
+            return distance;
         }
     }
 }

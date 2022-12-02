@@ -70,7 +70,7 @@ namespace DungeonTests
             var path = grid.GetPath(0, 2, 3, 2);
             var p = string.Join("->", path);
 
-            Assert.AreEqual("{X=0,Y=2}->{X=1,Y=2}->{X=2,Y=2}", p);
+            Assert.AreEqual("{X=0,Y=2}->{X=1,Y=1}->{X=2,Y=2}->{X=3,Y=2}", p);
         }
     }
 }
