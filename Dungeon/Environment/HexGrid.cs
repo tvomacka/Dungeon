@@ -51,7 +51,7 @@ namespace Dungeon.Environment
 
         public IEnumerable<Point> GetNeighbors(int x, int y)
         {
-            if(!IsInsideGrid(x, y))
+            if (!IsInsideGrid(x, y))
             {
                 throw new ArgumentException($"The provided coordinates {nameof(x)}, {nameof(y)} are outside this grid.\n" +
                     $"\t{nameof(x)}-coordinate must be between 0 and {Width - 1}.\n" +
@@ -60,9 +60,9 @@ namespace Dungeon.Environment
 
             List<Point> neighbors = new List<Point>();
 
-            foreach(var m in GetNeighborIndexModifiers(x, y))
+            foreach (var m in GetNeighborIndexModifiers(x, y))
             {
-                if(IsInsideGrid(x + m.X, y + m.Y))
+                if (IsInsideGrid(x + m.X, y + m.Y))
                 {
                     neighbors.Add(new Point(x + m.X, y + m.Y));
                 }
@@ -87,6 +87,16 @@ namespace Dungeon.Environment
             {
                 return XOddNeighborModifiers;
             }
+        }
+
+        public List<Point> GetPath(int startX, int startY, int destX, int destY)
+        {
+            return new List<Point>()
+            {
+                new Point(0, 2),
+                new Point(1, 2),
+                new Point(2, 2)
+            };
         }
     }
 }
