@@ -1,10 +1,5 @@
 ﻿using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Dungeon.Environment;
 
 namespace DungeonTests
@@ -48,7 +43,7 @@ namespace DungeonTests
         public void HexagonalGrid_CellOutOfBounds_Explodes()
         {
             var grid = new HexGrid<int>(3, 3);
-            var neighbors = grid.GetNeighbors(5, 0);
+            _ = grid.GetNeighbors(5, 0);
         }
 
         [TestMethod]
