@@ -33,5 +33,3 @@ Unless a pre-made character is provided to the player, they will usually create 
 ### Spells
 
 ### Reaction Modifiers
-
-[Details](playercharacters.md)
