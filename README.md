@@ -1,8 +1,25 @@
 # Dungeon
+
 A simple top-down 2D adventure/RPG game made using a TDD approach.
 Character/gameplay rules based on GURPS 4e.
 
 > Only the parts of the original rules that are actually useful for the game will be implemented!
+
+## General Game Progression
+1. [Character creation](characterCreation.md)
+1. Introduction to the story
+    1. Combat
+    1. Dialog
+    1. Exploring the environment
+1. Acquiring first quests
+1. Discovering new interactions
+1. Shopping
+1. Gaining XP
+1. Gaining Levels
+1. Using special skills
+1. Puzzle/minigames/whatever
+1. Gaining new party members
+1. Map travelling
 
 ## Player characters
 
