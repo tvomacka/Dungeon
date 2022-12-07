@@ -158,6 +158,25 @@ namespace DungeonTests
         }
 
         [TestMethod]
+        public void Item_CanBeEquiped_FromInventory()
+        {
+            //There is a dagger in the player character's inventory
+            //The character has nothing in their hand
+            //Move the dagger from inventory to character's right hand
+            //assert that the character is holding a dagger and the dagger is no longer in the inventory
+        }
+
+        [TestMethod]
+        public void Item_CannotBeEquiped_ByACharacterWithoutRequiredStrength()
+        {
+            //There is a hammer in the player character's inventory
+            //The hammer minimum ST requirement is 12
+            //The character has only ST=10
+            //Attempt to equip the hammer
+            //An Exception is thrown stating the amount of strength is insufficient
+        }
+
+        [TestMethod]
         public void Item_CanBePickedUp_FromTheGround()
         {
             LoadTestGame("fetchQuest.json");
