@@ -1,5 +1,9 @@
 # Dialogue
 
+Dialogue traverses through individual states, each state consists of a text and a list of options.
+Each option can have a condition that determines if it is shown to the player (and therefore choosable by the player).
+Each option can have actions attached to it, which will be executed before traversing to the next dialogue state.  
+
 ## Conditions
 
 ### Definition
