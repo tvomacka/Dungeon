@@ -10,7 +10,7 @@ Character/gameplay rules based on GURPS 4e.
 1. [Introduction to the story](introductionToTheStory.md)
 1. Exploring the environment
     1. Combat
-    1. Dialog
+    1. [Dialogue](dialogue.md)
 1. Acquiring first quests
 1. Discovering new interactions
 1. Shopping
@@ -52,14 +52,6 @@ graph TD;
 
 Characters get experience points (XP) for completing quests and proceeding through the game. This may include killing some NPCs/Monsters, but no XP is given for just killing opponents.
 [Details](progression.md)
-
-### Dialogue
-
-Dialogue traverses through individual states, each state consists of a text and a list of options.
-Each option can have a condition that determines if it is shown to the player (and therefore choosable by the player).
-Each option can have actions attached to it, which will be executed before traversing to the next dialogue state.  
-[Details](dialogue.md)
-
 
 ## NPCs
 
