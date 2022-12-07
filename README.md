@@ -6,11 +6,11 @@ Character/gameplay rules based on GURPS 4e.
 > Only the parts of the original rules that are actually useful for the game will be implemented!
 
 ## General Game Progression
-1. [Character creation](characterCreation.md)
-1. [Introduction to the story](introductionToTheStory.md)
+1. [Character creation](Docs/characterCreation.md)
+1. [Introduction to the story](Docs/introductionToTheStory.md)
 1. Exploring the environment
     1. Combat
-    1. [Dialogue](dialogue.md)
+    1. [Dialogue](Docs/dialogue.md)
 1. Acquiring first quests
 1. Discovering new interactions
 1. Shopping
