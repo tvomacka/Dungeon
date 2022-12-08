@@ -161,13 +161,8 @@ namespace DungeonTests
         [TestMethod]
         public void Item_CanBeEquiped_FromInventory()
         {
-            //There is a dagger in the player character's inventory
-            //The character has nothing in their hand
-            //Move the dagger from inventory to character's right hand
-            //assert that the character is holding a dagger and the dagger is no longer in the inventory
-
             var pc = new PlayerCharacter();
-            var dagger = new Dagger();
+            var dagger = new Dagger() { Id = 0 };
             pc.Inventory.Add(0);
             Assert.IsTrue(pc.RightHand.IsEmpty());
             pc.Equip(pc.Inventory[0], pc.RightHand);
