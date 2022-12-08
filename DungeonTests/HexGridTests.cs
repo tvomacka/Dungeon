@@ -1,10 +1,5 @@
 ﻿using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Dungeon.Environment;
 
 namespace DungeonTests
@@ -48,7 +43,7 @@ namespace DungeonTests
         public void HexagonalGrid_CellOutOfBounds_Explodes()
         {
             var grid = new HexGrid<int>(3, 3);
-            var neighbors = grid.GetNeighbors(5, 0);
+            _ = grid.GetNeighbors(5, 0);
         }
 
         [TestMethod]
@@ -58,6 +53,24 @@ namespace DungeonTests
             grid[1, 3] = 7;
 
             Assert.AreEqual(grid[1, 3], 7);
+        }
+
+        [TestMethod]
+        public void HexagonalGrid_SimplePath_CanBeFound()
+        {
+            var grid = new HexGrid<int>(5, 5);
+            for (int i = 0; i < grid.Width; i++)
+            {
+                for (int j = 0; j < grid.Height; j++)
+                {
+                    grid[i, j] = 0;
+                }
+            }
+
+            var path = grid.GetPath(0, 2, 3, 2);
+            var p = string.Join("->", path);
+
+            Assert.AreEqual("{X=0,Y=2}->{X=1,Y=1}->{X=2,Y=2}->{X=3,Y=2}", p);
         }
     }
 }
