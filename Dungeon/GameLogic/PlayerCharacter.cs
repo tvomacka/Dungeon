@@ -1,4 +1,7 @@
-﻿namespace Dungeon.GameLogic
+﻿using Dungeon.GameLogic.Equipment;
+using Dungeon.GameLogic.Exceptions;
+
+namespace Dungeon.GameLogic
 {
     public class PlayerCharacter
     {
@@ -35,6 +38,13 @@
 
         public void Equip(int itemId, EquipmentSlot target)
         {
+            var item = Game.Instance.Items.Single(i => i.Id == itemId);
+            
+            if (item is Weapon && (item as Weapon).MinStrength > Strength)
+                throw new GameException("Attempting to equip a weapon with insufficient strength.\n" + 
+                    $"{item.Name} requires {(item as Weapon).MinStrength} strength\n" +
+                    $"{Name} has {Strength} strength");
+
             target.Equip(itemId);
         }
     }

@@ -20,9 +20,10 @@ namespace Dungeon.GameLogic
 
         private Game()
         {
-            Characters = new List<NonPlayerCharacter>();
-            Quests = new List<Quest>();
-            Party = new Party();
+            Characters = new();
+            Quests = new();
+            Party = new();
+            Items = new();
             State = ExploreState;
         }
 

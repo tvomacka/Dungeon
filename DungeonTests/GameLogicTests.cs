@@ -183,7 +183,7 @@ namespace DungeonTests
             var hammer = new Weapon() { Id = 0, Name = "Hammer", MinStrength = 12 };
             game.Items.Add(hammer);
             
-            pc.Equip(pc.Inventory[0], pc.RightHand);
+            pc.Equip(hammer.Id, pc.RightHand);
         }
 
         [TestMethod]
