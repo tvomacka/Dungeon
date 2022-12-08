@@ -13,7 +13,7 @@ Character/gameplay rules based on GURPS 4e.
     1. Combat
     1. [Dialogue](Docs/dialogue.md)
 1. Acquiring first quests
-1. Discovering new interactions
+1. Discovering new/advanced interactions
 1. Shopping
 1. Gaining XP
 1. Gaining Levels
