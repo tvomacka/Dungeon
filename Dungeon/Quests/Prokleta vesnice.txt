@@ -1,0 +1,13 @@
+﻿Level:
+Typ: 
+Zadává: 
+Téma: 
+	Hráč při svém putování narazí na vesnici, která je na první pohled prokletá a pomáhá vesničanům zbavit se kletby - zachraňuje z lesa unesenou dívku, která by jinak byla obětována,
+	musí přinést léčivé ingredience pro místního nemocného, nebo např. zabít zlou čarodějnici.
+Postup:
+	1: 
+Odměna: 
+	-
+Poznámka:
+	Plot twist: ukáže se, že vesnice byla nevratně prokletá a nic z toho, co hráč udělal a mohl udělat ji nemohlo zachránit. Může následovat dilema, jestli vesničany dál nechá páchat zlo, nebo je kompletně vyvraždí. Žádná z možností mu nemůže přinést "kladné body", ale obě budou mít následně dopad na další děj.
+	Také je možné získat nějaké unikátní spojence nebo "zlé" artefakty a kouzla - odměna by se měla lišit podle toho, jak se hráč rozhodne s vesnicí a jejími obyvateli naložit.
