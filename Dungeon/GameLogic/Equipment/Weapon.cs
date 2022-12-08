@@ -8,5 +8,6 @@ namespace Dungeon.GameLogic.Equipment
 {
     public class Weapon : Item
     {
+        public int MinStrength { get; set; }
     }
 }

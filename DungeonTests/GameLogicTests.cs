@@ -170,6 +170,7 @@ namespace DungeonTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(GameException))]
         public void Item_CannotBeEquiped_ByACharacterWithoutRequiredStrength()
         {
             //There is a hammer in the player character's inventory
@@ -177,6 +178,12 @@ namespace DungeonTests
             //The character has only ST=10
             //Attempt to equip the hammer
             //An Exception is thrown stating the amount of strength is insufficient
+
+            var pc = new PlayerCharacter() { Strength = 10 };
+            var hammer = new Weapon() { Id = 0, Name = "Hammer", MinStrength = 12 };
+            game.Items.Add(hammer);
+            
+            pc.Equip(pc.Inventory[0], pc.RightHand);
         }
 
         [TestMethod]
