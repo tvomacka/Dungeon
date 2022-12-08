@@ -3,6 +3,7 @@ using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
 using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
+using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
 
 namespace DungeonTests
@@ -164,6 +165,13 @@ namespace DungeonTests
             //The character has nothing in their hand
             //Move the dagger from inventory to character's right hand
             //assert that the character is holding a dagger and the dagger is no longer in the inventory
+
+            var pc = new PlayerCharacter();
+            var dagger = new Dagger();
+            pc.Inventory.Add(0);
+            Assert.IsTrue(pc.RightHand.IsEmpty());
+            pc.Equip(pc.Inventory[0], pc.RightHand);
+            Assert.IsTrue(pc.RightHand.IsEquippedWith(dagger));
         }
 
         [TestMethod]
