@@ -162,7 +162,7 @@ namespace DungeonTests
         public void Item_CanBeEquiped_FromInventory()
         {
             var pc = new PlayerCharacter();
-            var dagger = new Dagger() { Id = 0 };
+            var dagger = new Weapon() { Id = 0, Name = "Dagger"};
             pc.Inventory.Add(0);
             Assert.IsTrue(pc.RightHand.IsEmpty());
             pc.Equip(pc.Inventory[0], pc.RightHand);

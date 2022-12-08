@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeon.GameLogic.Equipment
 {
-    public class Dagger : Item
+    public class Weapon : Item
     {
     }
 }
