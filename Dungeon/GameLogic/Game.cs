@@ -1,4 +1,5 @@
 ﻿using Dungeon.GameLogic.Dialogues;
+using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
 using System.Text.Json;
 using System.Text.Json.Nodes;

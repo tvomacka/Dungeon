@@ -25,11 +25,17 @@
         public PlayerCharacter()
         {
             Inventory = new List<int>();
+            RightHand = new EquipmentSlot();
         }
 
         public void AddXP(int v)
         {
             XP += v;
+        }
+
+        public void Equip(int itemId, EquipmentSlot target)
+        {
+            target.Equip(itemId);
         }
     }
 }

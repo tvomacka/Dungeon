@@ -1,4 +1,4 @@
-﻿namespace Dungeon.GameLogic
+﻿namespace Dungeon.GameLogic.Equipment
 {
     public class Item
     {
