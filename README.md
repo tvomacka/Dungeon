@@ -8,6 +8,7 @@ Character/gameplay rules based on GURPS 4e.
 [Coding Guidelines](Docs/codingGuidelines.md)
 
 ## General Game Progression
+
 1. [Character creation](Docs/characterCreation.md)
 1. [Introduction to the story](Docs/introductionToTheStory.md)
 1. Exploring the environment
