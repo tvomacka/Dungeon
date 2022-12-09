@@ -1,11 +1,14 @@
 # Dungeon
 
-A simple top-down 2D adventure/RPG game made using a TDD approach.
+Framework for 2D adventure/RPG games mad made using TDD approach.
 Character/gameplay rules based on GURPS 4e.
 
 > Only the parts of the original rules that are actually useful for the game will be implemented!
 
+[Coding Guidelines](Docs/codingGuidelines.md)
+
 ## General Game Progression
+
 1. [Character creation](Docs/characterCreation.md)
 1. [Introduction to the story](Docs/introductionToTheStory.md)
 1. Exploring the environment
