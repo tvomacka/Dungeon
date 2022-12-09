@@ -1,6 +1,7 @@
 ﻿using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
+using Dungeon.Services;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
@@ -10,7 +11,7 @@ namespace Dungeon.GameLogic
     {
         private static Game instance = null;
 
-        private List<NonPlayerCharacter> Characters { get; set; }
+        public List<NonPlayerCharacter> Characters { get; set; }
         public List<Dialogue> Dialogues { get; set; }
         public Party Party { get; set; }
         public List<Quest> Quests { get; set; }
@@ -34,29 +35,7 @@ namespace Dungeon.GameLogic
 
         public void Load(string path)
         {
-            string jsonString = File.ReadAllText(path);
-            var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
-
-            if (json["Characters"] != null)
-            {
-                Characters = JsonSerializer.Deserialize<NonPlayerCharacter[]>(json["Characters"]).ToList<NonPlayerCharacter>();
-            }
-            if (json["Dialogues"] != null)
-            {
-                Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
-            }
-            if (json["Party"] != null)
-            {
-                Party = JsonSerializer.Deserialize<Party>(json["Party"]);
-            }
-            if (json["Items"] != null)
-            {
-                Items = JsonSerializer.Deserialize<Item[]>(json["Items"]).ToList<Item>();
-            }
-            if (json["Quests"] != null)
-            {
-                Quests = JsonSerializer.Deserialize<Quest[]>(json["Quests"]).ToList<Quest>();
-            }
+            GameLoader.Load(this, path);
         }
 
         public NonPlayerCharacter GetCharacter(string name)
