@@ -5,6 +5,7 @@ using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
+using Dungeon.Services;
 
 namespace DungeonTests
 {
@@ -16,7 +17,7 @@ namespace DungeonTests
 
         private void LoadTestGame(string gameName)
         {
-            game.Load(@"..\..\..\TestResources\Games\" + gameName);
+            game = GameLoader.Load(@"..\..\..\TestResources\Games\" + gameName);
         }
 
 
