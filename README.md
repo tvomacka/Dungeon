@@ -5,7 +5,7 @@ Character/gameplay rules based on GURPS 4e.
 
 > Only the parts of the original rules that are actually useful for the game will be implemented!
 
-[Coding Guidelines](Docs/codingGuidelines.md.md)
+[Coding Guidelines](Docs/codingGuidelines.md)
 
 ## General Game Progression
 1. [Character creation](Docs/characterCreation.md)
