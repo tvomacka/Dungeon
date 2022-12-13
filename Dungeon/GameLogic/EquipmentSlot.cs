@@ -4,21 +4,21 @@ namespace Dungeon.GameLogic
 {
     public class EquipmentSlot
     {
-        private int equippedId = -1;
+        private Item equipped = null;
 
         public bool IsEmpty()
         {
-            return equippedId == -1;
+            return equipped == null;
         }
 
         public bool IsEquippedWith(Item item)
         {
-            return equippedId == item.Id;
+            return equipped.Equals(item);
         }
 
-        public void Equip(int itemId)
+        public void Equip(Item item)
         {
-            equippedId = itemId;
+            equipped = item;
         }
     }
 }

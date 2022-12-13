@@ -163,7 +163,7 @@ namespace DungeonTests
         {
             var pc = new PlayerCharacter();
             var dagger = new Weapon() { Id = 0, Name = "Dagger"};
-            pc.Inventory.Add(0);
+            pc.Inventory.Add(dagger);
             Assert.IsTrue(pc.RightHand.IsEmpty());
             pc.Equip(pc.Inventory[0], pc.RightHand);
             Assert.IsTrue(pc.RightHand.IsEquippedWith(dagger));
@@ -177,7 +177,7 @@ namespace DungeonTests
             var hammer = new Weapon() { Id = 1, Name = "Hammer", MinStrength = 12 };
             game.Items.Add(hammer);
             
-            pc.Equip(hammer.Id, pc.RightHand);
+            pc.Equip(hammer, pc.RightHand);
         }
 
         [TestMethod]
@@ -189,7 +189,7 @@ namespace DungeonTests
             game.PickUpItem(0, 0);
 
             Assert.AreEqual("InInventory", game.Items[0].State);
-            Assert.IsTrue(game.Party[0].Inventory.Contains(game.Items[0].Id));
+            Assert.IsTrue(game.Party[0].Inventory.Contains(game.Items[0]));
         }
 
         [TestMethod]
@@ -225,7 +225,7 @@ namespace DungeonTests
             game.State = game.DialogueWith(npc);
             game.State = (game.State as Dialogue).ChooseOption(1);
 
-            Assert.IsFalse(game.Party[0].Inventory.Contains(game.Items[0].Id));
+            Assert.IsFalse(game.Party[0].Inventory.Contains(game.Items[0]));
             Assert.AreEqual(0, game.Party.ActiveQuests.Count());
             Assert.AreEqual(100, game.Party[0].XP);
         }

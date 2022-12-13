@@ -14,7 +14,7 @@ namespace Dungeon.GameLogic.Dialogues
             else if (ActionType == "CompleteQuest")
                 Game.Instance.Party.ActiveQuests.Remove(int.Parse(ActionParameters[0]));
             else if (ActionType == "LoseItem")
-                Game.Instance.Party[0].Inventory.Remove(int.Parse(ActionParameters[0]));
+                Game.Instance.Party[0].Inventory.Remove(Game.Instance.Items.Single(i => i.Id == int.Parse(ActionParameters[0])));
             else if (ActionType == "GainXP")
                 Game.Instance.Party[0].AddXP(int.Parse(ActionParameters[0]));
         }

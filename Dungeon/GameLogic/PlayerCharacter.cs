@@ -21,13 +21,13 @@ namespace Dungeon.GameLogic
         #endregion
 
         #region Equipment and Inventory
-        public List<int> Inventory { get; set; }
+        public List<Item> Inventory { get; set; }
         public EquipmentSlot RightHand { get; set; }
         #endregion
 
         public PlayerCharacter()
         {
-            Inventory = new List<int>();
+            Inventory = new List<Item>();
             RightHand = new EquipmentSlot();
         }
 
@@ -36,16 +36,14 @@ namespace Dungeon.GameLogic
             XP += v;
         }
 
-        public void Equip(int itemId, EquipmentSlot target)
-        {
-            var item = Game.Instance.Items.Single(i => i.Id == itemId);
-            
+        public void Equip(Item item, EquipmentSlot target)
+        {         
             if (item is Weapon && (item as Weapon).MinStrength > Strength)
                 throw new GameException("Attempting to equip a weapon with insufficient strength.\n" + 
                     $"{item.Name} requires {(item as Weapon).MinStrength} strength\n" +
                     $"{Name} has {Strength} strength");
 
-            target.Equip(itemId);
+            target.Equip(item);
         }
     }
 }
