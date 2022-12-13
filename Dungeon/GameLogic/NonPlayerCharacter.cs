@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dungeon.GameLogic.Dialogues;
+﻿using Dungeon.GameLogic.Dialogues;
 
-namespace Dungeon.GameLogic
+namespace Dungeon.GameLogic;
+
+public class NonPlayerCharacter
 {
-    public class NonPlayerCharacter
-    {
-        public Point Location { get; set; }
-        public string Name { get; set; }
-        public int Dialogue { get; set; }
+    public Point Location { get; set; }
+    public string Name { get; set; }
+    public int Dialogue { get; set; }
 
-        internal Dialogue StartDialogue()
-        {
-            return Game.Instance.Dialogues.Single(d => d.Id == Dialogue);
-        }
+    internal Dialogue StartDialogue()
+    {
+        return Game.Instance.Dialogues.Single(d => d.Id == Dialogue);
     }
 }
