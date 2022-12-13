@@ -12,5 +12,10 @@
         {
             return $"Item {Id}: {Name}";
         }
+
+        public override bool Equals(object obj)
+        {
+            return (obj as Item)?.Id == Id;
+        }
     }
 }
