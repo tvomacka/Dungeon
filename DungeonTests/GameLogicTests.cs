@@ -188,7 +188,6 @@ public class GameLogicTests
         game.Party.MoveTo(game.Items[0].Location);
         game.PickUpItem(0, 0);
 
-        Assert.AreEqual("InInventory", game.Items[0].State);
         Assert.IsTrue(game.Party[0].Inventory.Contains(game.Items[0]));
     }
 

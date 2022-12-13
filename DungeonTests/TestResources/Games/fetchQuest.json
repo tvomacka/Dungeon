@@ -66,7 +66,6 @@
   "Items": [
     {
       "Id": 0,
-      "State": "OnGround",
       "Location": {
         "X": 3,
         "Y": 0
