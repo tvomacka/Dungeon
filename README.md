@@ -25,6 +25,8 @@ Character/gameplay rules based on GURPS 4e.
 1. Gaining new party members
 1. Map travelling
 
+> Player choices need to have impact on the environment (and obviously game progression).
+
 ## Game mechanics
 
 The game cycles through the following states:
