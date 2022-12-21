@@ -1,4 +1,5 @@
-﻿using Dungeon.GameLogic;
+﻿using Dungeon.GameLogic.Exceptions;
+using System.Collections;
 
 namespace Dungeon.GameLogic.Dialogues
 {
@@ -10,13 +11,50 @@ namespace Dungeon.GameLogic.Dialogues
 
         public bool IsSatisfied(PlayerCharacter playerCharacter)
         {
-            if (Subject == "Intelligence" && Test == "GreaterThan")
-                return playerCharacter.Intelligence > int.Parse(Target);
-            else if (Subject == "Inventory" && Test == "Contains")
-                return playerCharacter.Inventory.Contains(Game.Instance.Items.Single(i => i.Id == int.Parse(Target)));
-            else if (Subject == "Strength" && Test == "GreaterThan")
-                return playerCharacter.Strength > int.Parse(Target);
-            return false;
+            return Compare(GetSubjectValue(playerCharacter, Subject), GetTargetValue(Target), GetComparator(Test));
+        }
+
+        private Func<object, int, bool> GetComparator(string test)
+        {
+            if (test == "GreaterThan")
+            {
+                return (x, y) => { return (int)x > y; };
+            }
+            else if(test == "Contains")
+            {
+                return (x, y) => { return (x as IList).Contains(Game.Instance.Items.Single(i => i.Id == y)); };
+            }
+
+            throw new GameException($"There is no comparator for the provided test value {test}.");
+        }
+
+        private int GetTargetValue(string target)
+        {
+            return int.Parse(target);
+        }
+
+        private object GetSubjectValue(PlayerCharacter playerCharacter, string subject)
+        {
+            if(subject == "Intelligence")
+            {
+                return playerCharacter.Intelligence;
+            }
+            else if (subject == "Strength")
+            {
+                return playerCharacter.Strength;
+            }
+            else if (subject == "Inventory")
+            {
+                return playerCharacter.Inventory;
+            }
+
+            throw new GameException($"You are trying to get {subject} value from {playerCharacter}.\n"
+                + $"It cannot be obtained using this method.");
+        }
+
+        public bool Compare(object value, int target, Func<object, int, bool> comparator)
+        {
+            return comparator(value, target);
         }
 
         public override string ToString()
