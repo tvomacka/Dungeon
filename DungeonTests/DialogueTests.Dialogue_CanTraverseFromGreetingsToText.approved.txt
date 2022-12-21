@@ -1,0 +1,5 @@
+﻿[0] = Greetings.
+	0: Hi there!
+[1] = Want anything?
+	0: No.
+	1: Not really.
