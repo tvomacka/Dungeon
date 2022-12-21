@@ -14,6 +14,8 @@ namespace Dungeon.GameLogic.Dialogues
                 return playerCharacter.Intelligence > int.Parse(Target);
             else if (Subject == "Inventory" && Test == "Contains")
                 return playerCharacter.Inventory.Contains(Game.Instance.Items.Single(i => i.Id == int.Parse(Target)));
+            else if (Subject == "Strength" && Test == "GreaterThan")
+                return playerCharacter.Strength > int.Parse(Target);
             return false;
         }
 
