@@ -1,4 +1,3 @@
-using ApprovalTests;
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
 using Dungeon.GameLogic;
