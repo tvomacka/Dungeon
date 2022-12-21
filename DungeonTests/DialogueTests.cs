@@ -10,20 +10,18 @@ namespace DungeonTests;
 [UseReporter(typeof(VisualStudioReporter))]
 public class DialogueTests
 {
-    private Game game = Game.Instance;
-
     [TestMethod]
     public void Party_CanGetQuestFromNpcThroughDialogue()
     {
         GameLogicTests.LoadTestGame("test.json");
-        Assert.AreEqual(0, game.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
 
-        var npc = game.GetCharacter("QuestNPC");
-        game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-        game.State = game.DialogueWith(npc);
-        game.State = (game.State as Dialogue).ChooseOption(0);
+        var npc = Game.Instance.GetCharacter("QuestNPC");
+        Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
 
-        Assert.AreEqual(1, game.Party.ActiveQuests.Count);
+        Assert.AreEqual(1, Game.Instance.Party.ActiveQuests.Count);
     }
 
 
@@ -32,14 +30,14 @@ public class DialogueTests
     public void Party_CanDeclineQuestFromNpcThroughDialogue()
     {
         GameLogicTests.LoadTestGame("test.json");
-        Assert.AreEqual(0, game.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
 
-        var npc = game.GetCharacter("QuestNPC");
-        game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-        game.State = game.DialogueWith(npc);
-        game.State = (game.State as Dialogue).ChooseOption(1);
+        var npc = Game.Instance.GetCharacter("QuestNPC");
+        Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(1);
 
-        Assert.AreEqual(0, game.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
     }
 
     [TestMethod]
@@ -49,13 +47,13 @@ public class DialogueTests
 
         var states = new List<string>();
 
-        var npc = game.GetCharacter("DialogueNPC");
-        game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-        game.State = game.DialogueWith(npc);
-        states.Add((game.State as Dialogue).GetCurrentState().ToString());
-        game.State = (game.State as Dialogue).ChooseOption(0);
-        states.Add((game.State as Dialogue).GetCurrentState().ToString());
-        game.State = (game.State as Dialogue).ChooseOption(0);
+        var npc = Game.Instance.GetCharacter("DialogueNPC");
+        Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        states.Add((Game.Instance.State as Dialogue).GetCurrentState().ToString());
+        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
+        states.Add((Game.Instance.State as Dialogue).GetCurrentState().ToString());
+        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
 
         Approvals.VerifyAll(states, "");
     }
@@ -65,20 +63,20 @@ public class DialogueTests
     {
         GameLogicTests.LoadTestGame("dialogueCondition.json");
 
-        var npc = game.GetCharacter("DialogueNPC");
-        game.State = game.DialogueWith(npc);
-        Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
+        var npc = Game.Instance.GetCharacter("DialogueNPC");
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        Approvals.VerifyAll((Game.Instance.State as Dialogue).GetFilteredOptions(), "");
     }
 
     [TestMethod]
     public void DialogueOptionWithCondition_ShowsWhenConditionIsMet()
     {
         GameLogicTests.LoadTestGame("dialogueCondition.json");
-        game.Party[0].Intelligence = 100;
+        Game.Instance.Party[0].Intelligence = 100;
 
-        var npc = game.GetCharacter("DialogueNPC");
-        game.State = game.DialogueWith(npc);
-        Approvals.VerifyAll((game.State as Dialogue).GetFilteredOptions(), "");
+        var npc = Game.Instance.GetCharacter("DialogueNPC");
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        Approvals.VerifyAll((Game.Instance.State as Dialogue).GetFilteredOptions(), "");
     }
 
     [TestMethod]
@@ -87,9 +85,9 @@ public class DialogueTests
     {
         GameLogicTests.LoadTestGame("dialogueCondition.json");
 
-        var npc = game.GetCharacter("DialogueNPC");
-        game.State = game.DialogueWith(npc);
-        (game.State as Dialogue).ChooseOption(2);
+        var npc = Game.Instance.GetCharacter("DialogueNPC");
+        Game.Instance.State = Game.Instance.DialogueWith(npc);
+        (Game.Instance.State as Dialogue).ChooseOption(2);
     }
 
     [TestMethod]
