@@ -124,5 +124,10 @@ public class DialogueTests
         Assert.IsTrue(lessThanComparator(1, 10));
         Assert.IsFalse(lessThanComparator(10, 10));
         Assert.IsFalse(lessThanComparator(11, 10));
+
+        var lessThanOrEqualComparator = DialogueCondition.GetComparator("LessThanOrEqual");
+        Assert.IsTrue(lessThanOrEqualComparator(1, 10));
+        Assert.IsTrue(lessThanOrEqualComparator(10, 10));
+        Assert.IsFalse(lessThanOrEqualComparator(11, 10));
     }
 }

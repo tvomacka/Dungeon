@@ -24,9 +24,13 @@ namespace Dungeon.GameLogic.Dialogues
             {
                 return (x, y) => { return (int)x >= y; };
             }
-            else if(test == "LessThan")
+            else if (test == "LessThan")
             {
                 return (x, y) => { return (int)x < y; };
+            }
+            else if (test == "LessThanOrEqual")
+            {
+                return (x, y) => { return (int)x <= y; };
             }
             else if(test == "Contains")
             {
