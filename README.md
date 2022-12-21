@@ -57,6 +57,12 @@ graph TD;
 Characters get experience points (XP) for completing quests and proceeding through the game. This may include killing some NPCs/Monsters, but no XP is given for just killing opponents.
 [Details](progression.md)
 
+### Story Development
+
+> Player choices need to have an impact on the environment (and obviously game progression).
+
+The player needs to feel that the characters are living in a dynamic environment and that his choices throughout the game can and do impact the environment. This is achieved partially by the story being non-linear and partially by the engine allowing the environment to react to the player's actions.
+
 ## NPCs
 
 ## Combat
