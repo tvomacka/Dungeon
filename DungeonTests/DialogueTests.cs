@@ -91,4 +91,10 @@ public class DialogueTests
         game.State = game.DialogueWith(npc);
         (game.State as Dialogue).ChooseOption(2);
     }
+
+    [TestMethod]
+    public void DialogueCondition_CanTarget_StrengthAttribute()
+    {
+        GameLogicTests.ResetGame();
+    }
 }

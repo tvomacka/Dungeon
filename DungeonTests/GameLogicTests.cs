@@ -19,6 +19,10 @@ public class GameLogicTests
         Game.Instance.Load(@"..\..\..\TestResources\Games\" + gameName);
     }
 
+    public static void ResetGame()
+    {
+        Game.Instance.Reset();
+    }
 
     [TestMethod]
     public void PartyLocation_CanBeLoadedFromFile()

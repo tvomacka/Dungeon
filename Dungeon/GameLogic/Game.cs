@@ -30,6 +30,10 @@ namespace Dungeon.GameLogic
         {
             return npc.StartDialogue();
         }
+        public void Reset()
+        {
+            instance = new Game();
+        }
 
         public void Load(string path)
         {
@@ -60,6 +64,7 @@ namespace Dungeon.GameLogic
                 throw new GameException($"The game party must be at the same location as the item you are trying to pick up.\nParty location: {Party.Location}\nItem location: {item.Location}");
             }
         }
+
 
         public static Game Instance
         {
