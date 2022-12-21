@@ -106,4 +106,17 @@ public class DialogueTests
 
         Assert.AreEqual(true, condition.IsSatisfied(pc));
     }
+
+    [TestMethod]
+    public void DialogueCondition_Comparators_ReturnExpectedResults()
+    {
+        var greaterThanComparator = DialogueCondition.GetComparator("GreaterThan");
+        Assert.IsTrue(greaterThanComparator(10, 1));
+        Assert.IsFalse(greaterThanComparator(10, 10));
+
+        var greaterThanOrEqualComparator = DialogueCondition.GetComparator("GreaterThanOrEqual");
+        Assert.IsTrue(greaterThanOrEqualComparator(10, 1));
+        Assert.IsTrue(greaterThanOrEqualComparator(10, 10));
+        Assert.IsFalse(greaterThanOrEqualComparator(10, 11));
+    }
 }

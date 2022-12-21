@@ -14,14 +14,19 @@ namespace Dungeon.GameLogic.Dialogues
             return Compare(GetSubjectValue(playerCharacter, Subject), GetTargetValue(Target), GetComparator(Test));
         }
 
-        private Func<object, int, bool> GetComparator(string test)
+        public static Func<object, int, bool> GetComparator(string test)
         {
             if (test == "GreaterThan")
             {
                 return (x, y) => { return (int)x > y; };
             }
+            else if (test == "GreaterThanOrEqual")
+            {
+                return (x, y) => { return (int)x >= y; };
+            }
             else if(test == "Contains")
             {
+                //TODO: we don't want to be calling Game.Instance... stuff here
                 return (x, y) => { return (x as IList).Contains(Game.Instance.Items.Single(i => i.Id == y)); };
             }
 
