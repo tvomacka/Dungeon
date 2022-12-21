@@ -94,5 +94,16 @@ public class DialogueTests
     public void DialogueCondition_CanTarget_StrengthAttribute()
     {
         GameLogicTests.ResetGame();
+
+        var condition = new DialogueCondition
+        {
+            Subject = "Strength",
+            Test = "GreaterThan",
+            Target = "10"
+        };
+
+        var pc = new PlayerCharacter() { Strength = 11 };
+
+        Assert.AreEqual(true, condition.IsSatisfied(pc));
     }
 }
