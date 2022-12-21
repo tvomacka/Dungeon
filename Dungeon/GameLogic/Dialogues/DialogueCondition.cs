@@ -11,9 +11,9 @@ namespace Dungeon.GameLogic.Dialogues
         public bool IsSatisfied(PlayerCharacter playerCharacter)
         {
             if (Subject == "Intelligence" && Test == "GreaterThan")
-                return Game.Instance.Party[0].Intelligence > int.Parse(Target);
+                return playerCharacter.Intelligence > int.Parse(Target);
             else if (Subject == "Inventory" && Test == "Contains")
-                return Game.Instance.Party[0].Inventory.Contains(Game.Instance.Items.Single(i => i.Id == int.Parse(Target)));
+                return playerCharacter.Inventory.Contains(Game.Instance.Items.Single(i => i.Id == int.Parse(Target)));
             return false;
         }
 
