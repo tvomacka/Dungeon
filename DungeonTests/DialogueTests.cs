@@ -134,5 +134,10 @@ public class DialogueTests
         Assert.IsFalse(equalComparator(1, 10));
         Assert.IsTrue(equalComparator(10, 10));
         Assert.IsFalse(equalComparator(11, 10));
+
+        var notEqualComparator = DialogueCondition.GetComparator("NotEqual");
+        Assert.IsTrue(notEqualComparator(1, 10));
+        Assert.IsFalse(notEqualComparator(10, 10));
+        Assert.IsTrue(notEqualComparator(11, 10));
     }
 }

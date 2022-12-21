@@ -36,6 +36,10 @@ namespace Dungeon.GameLogic.Dialogues
             {
                 return (x, y) => { return (int)x == y; };
             }
+            else if (test == "NotEqual")
+            {
+                return (x, y) => { return (int)x != y; };
+            }
             else if(test == "Contains")
             {
                 //TODO: we don't want to be calling Game.Instance... stuff here
