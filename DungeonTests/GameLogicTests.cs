@@ -14,9 +14,9 @@ public class GameLogicTests
 {
     private Game game = Game.Instance;
 
-    private void LoadTestGame(string gameName)
+    public static void LoadTestGame(string gameName)
     {
-        game.Load(@"..\..\..\TestResources\Games\" + gameName);
+        Game.Instance.Load(@"..\..\..\TestResources\Games\" + gameName);
     }
 
 
@@ -53,19 +53,7 @@ public class GameLogicTests
         Assert.AreEqual("{X=4,Y=5}", game.Party.Location.ToString());
     }
 
-    [TestMethod]
-    public void Party_CanGetQuestFromNpcThroughDialogue()
-    {
-        LoadTestGame("test.json");
-        Assert.AreEqual(0, game.Party.ActiveQuests.Count);
-
-        var npc = game.GetCharacter("QuestNPC");
-        game.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
-        game.State = game.DialogueWith(npc);
-        game.State = (game.State as Dialogue).ChooseOption(0);
-
-        Assert.AreEqual(1, game.Party.ActiveQuests.Count);
-    }
+    
 
     [TestMethod]
     public void Party_CanDeclineQuestFromNpcThroughDialogue()
