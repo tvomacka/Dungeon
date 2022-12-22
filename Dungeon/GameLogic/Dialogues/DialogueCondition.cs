@@ -51,9 +51,7 @@ namespace Dungeon.GameLogic.Dialogues
                 case "Strength":
                     return playerCharacter.Strength;
                 case "Inventory":
-                    {
-                        return playerCharacter.Inventory.Select(i => i.Id).ToList();
-                    }
+                    return playerCharacter.Inventory.Select(i => i.Id).ToList();
             }
 
             throw new GameException($"You are trying to get {subject} value from {playerCharacter}.\n"
