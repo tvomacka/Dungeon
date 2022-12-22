@@ -16,34 +16,43 @@ namespace Dungeon.GameLogic.Dialogues
 
         public static Func<object, int, bool> GetComparator(string test)
         {
-            if (test == "GreaterThan")
+            switch (test)
             {
-                return (x, y) => { return (int)x > y; };
-            }
-            else if (test == "GreaterThanOrEqual")
-            {
-                return (x, y) => { return (int)x >= y; };
-            }
-            else if (test == "LessThan")
-            {
-                return (x, y) => { return (int)x < y; };
-            }
-            else if (test == "LessThanOrEqual")
-            {
-                return (x, y) => { return (int)x <= y; };
-            }
-            else if (test == "Equal")
-            {
-                return (x, y) => { return (int)x == y; };
-            }
-            else if (test == "NotEqual")
-            {
-                return (x, y) => { return (int)x != y; };
-            }
-            else if(test == "Contains")
-            {
-                //TODO: we don't want to be calling Game.Instance... stuff here
-                return (x, y) => { return (x as IList).Contains(y); };
+                case "GreaterThan":
+                    {
+                        return (x, y) => { return (int)x > y; };
+                    }
+
+                case "GreaterThanOrEqual":
+                    {
+                        return (x, y) => { return (int)x >= y; };
+                    }
+
+                case "LessThan":
+                    {
+                        return (x, y) => { return (int)x < y; };
+                    }
+
+                case "LessThanOrEqual":
+                    {
+                        return (x, y) => { return (int)x <= y; };
+                    }
+
+                case "Equal":
+                    {
+                        return (x, y) => { return (int)x == y; };
+                    }
+
+                case "NotEqual":
+                    {
+                        return (x, y) => { return (int)x != y; };
+                    }
+
+                case "Contains":
+                    {
+                        //TODO: we don't want to be calling Game.Instance... stuff here
+                        return (x, y) => { return (x as IList).Contains(y); };
+                    }
             }
 
             throw new GameException($"There is no comparator for the provided test value {test}.");
