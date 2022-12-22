@@ -108,7 +108,7 @@ public class DialogueTests
     }
 
     [TestMethod]
-    public void DialogueCondition_Comparators_ReturnExpectedResults()
+    public void DialogueCondition_NumericComparators_ReturnExpectedResults()
     {
         var greaterThanComparator = DialogueCondition.GetComparator("GreaterThan");
         Assert.IsTrue(greaterThanComparator(10, 1));
