@@ -56,17 +56,16 @@ namespace Dungeon.GameLogic.Dialogues
 
         private object GetSubjectValue(PlayerCharacter playerCharacter, string subject)
         {
-            if(subject == "Intelligence")
+            switch (subject)
             {
-                return playerCharacter.Intelligence;
-            }
-            else if (subject == "Strength")
-            {
-                return playerCharacter.Strength;
-            }
-            else if (subject == "Inventory")
-            {
-                return playerCharacter.Inventory.Select(i => i.Id).ToList();
+                case "Intelligence":
+                    return playerCharacter.Intelligence;
+                case "Strength":
+                    return playerCharacter.Strength;
+                case "Inventory":
+                    {
+                        return playerCharacter.Inventory.Select(i => i.Id).ToList();
+                    }
             }
 
             throw new GameException($"You are trying to get {subject} value from {playerCharacter}.\n"
