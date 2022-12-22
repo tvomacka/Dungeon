@@ -43,7 +43,7 @@ namespace Dungeon.GameLogic.Dialogues
             else if(test == "Contains")
             {
                 //TODO: we don't want to be calling Game.Instance... stuff here
-                return (x, y) => { return (x as IList).Contains(Game.Instance.Items.Single(i => i.Id == y)); };
+                return (x, y) => { return (x as IList).Contains(y); };
             }
 
             throw new GameException($"There is no comparator for the provided test value {test}.");
@@ -66,7 +66,7 @@ namespace Dungeon.GameLogic.Dialogues
             }
             else if (subject == "Inventory")
             {
-                return playerCharacter.Inventory;
+                return playerCharacter.Inventory.Select(i => i.Id).ToList();
             }
 
             throw new GameException($"You are trying to get {subject} value from {playerCharacter}.\n"
