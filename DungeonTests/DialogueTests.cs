@@ -108,6 +108,13 @@ public class DialogueTests
     }
 
     [TestMethod]
+    public void DialogueCondition_AssignedQuest_CanBeTested()
+    {
+        var assignedQuestComparator = DialogueCondition.GetComparator("Assigned");
+        Assert.IsTrue(assignedQuestComparator(1, 1));
+    }
+
+    [TestMethod]
     public void DialogueCondition_NumericComparators_ReturnExpectedResults()
     {
         var greaterThanComparator = DialogueCondition.GetComparator("GreaterThan");
