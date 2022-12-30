@@ -14,12 +14,12 @@ namespace Dungeon.GameLogic
         {
             get { return Members[index]; }
         }
-        public List<int> ActiveQuests { get; set; }
+        public List<int> AssignedQuests { get; set; }
 
         public Party()
         {
             Members = new List<PlayerCharacter>();
-            ActiveQuests = new List<int>();
+            AssignedQuests = new List<int>();
         }
 
         public void MoveTo(int x, int y)

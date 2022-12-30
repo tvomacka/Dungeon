@@ -42,7 +42,7 @@ namespace Dungeon.GameLogic.Dialogues
             return int.Parse(target);
         }
 
-        private object GetSubjectValue(PlayerCharacter playerCharacter, string subject)
+        public static object GetSubjectValue(PlayerCharacter playerCharacter, string subject)
         {
             switch (subject)
             {
@@ -52,6 +52,8 @@ namespace Dungeon.GameLogic.Dialogues
                     return playerCharacter.Strength;
                 case "Inventory":
                     return playerCharacter.Inventory.Select(i => i.Id).ToList();
+                case "AssignedQuests":
+                    return Game.Instance.Party.AssignedQuests;
             }
 
             throw new GameException($"You are trying to get {subject} value from {playerCharacter}.\n"

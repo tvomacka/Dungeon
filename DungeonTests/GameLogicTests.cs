@@ -159,7 +159,7 @@ public class GameLogicTests
         Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(1);
 
         Assert.IsFalse(Game.Instance.Party[0].Inventory.Contains(Game.Instance.Items[0]));
-        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count());
+        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count());
         Assert.AreEqual(100, Game.Instance.Party[0].XP);
     }
 

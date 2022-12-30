@@ -3,6 +3,7 @@ using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
 using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
+using System.Collections.Generic;
 
 namespace DungeonTests;
 
@@ -14,14 +15,14 @@ public class DialogueTests
     public void Party_CanGetQuestFromNpcThroughDialogue()
     {
         GameLogicTests.LoadTestGame("test.json");
-        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count);
 
         var npc = Game.Instance.GetCharacter("QuestNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
         Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
 
-        Assert.AreEqual(1, Game.Instance.Party.ActiveQuests.Count);
+        Assert.AreEqual(1, Game.Instance.Party.AssignedQuests.Count);
     }
 
 
@@ -30,14 +31,14 @@ public class DialogueTests
     public void Party_CanDeclineQuestFromNpcThroughDialogue()
     {
         GameLogicTests.LoadTestGame("test.json");
-        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count);
 
         var npc = Game.Instance.GetCharacter("QuestNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
         Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(1);
 
-        Assert.AreEqual(0, Game.Instance.Party.ActiveQuests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count);
     }
 
     [TestMethod]
@@ -110,8 +111,13 @@ public class DialogueTests
     [TestMethod]
     public void DialogueCondition_AssignedQuest_CanBeTested()
     {
-        var assignedQuestComparator = DialogueCondition.GetComparator("Assigned");
-        Assert.IsTrue(assignedQuestComparator(1, 1));
+        GameLogicTests.ResetGame();
+        Game.Instance.Party.AssignedQuests.AddRange(new List<int> { 2, 7, 11});
+
+        var assignedQuests = DialogueCondition.GetSubjectValue(null, "AssignedQuests");
+        var quests = String.Join(",", assignedQuests as IEnumerable<int>);
+
+        Assert.AreEqual("2,7,11", quests);
     }
 
     [TestMethod]
