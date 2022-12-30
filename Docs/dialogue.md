@@ -23,7 +23,7 @@ For example, if (*Subject*, *Target*, *Test*) is (Intelligence, 10, GreaterThan)
 
 ### Test Matrix
 
-|Condition|Attributes|Inventory|Quest|PartyMembers|
+|Condition|Attributes|Inventory|AssignedQuests|PartyMembers|
 |:---:|:---:|:---:|:---:|:---:|
 |GreaterThan|X|-|-|X|
 |GreaterThanOrEqual|X|-|-|X|
@@ -31,11 +31,7 @@ For example, if (*Subject*, *Target*, *Test*) is (Intelligence, 10, GreaterThan)
 |LessThanOrEqual|X|-|-|X|
 |Equal|X|-|-|X|
 |NotEqual|X|-|-|X|
-|Assigned|-|-|X|-|
-|Unassigned|-|-|X|-|
-|Completed|-|-|X|-|
-|Failed|-|-|X|-|
-|Contains|-|X|-|X|
+|Contains|-|X|X|X|
 
 <details><summary>Details</summary>
  
