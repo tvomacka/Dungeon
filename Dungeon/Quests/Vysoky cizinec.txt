@@ -2,12 +2,14 @@ Level:
 Typ: 
 Zadává:
   Poté, co postava poprvé zabije nějakého inteligentního nepřítele (čili nikoliv zvíře), po boji k ní přistoupí NPC - tajemný cizinec, který zadá úkol. 
-Téma: 
-	Šachy se smrtí á la Sedmá pečeť.
+Téma:
+  Šachy se smrtí á la Sedmá pečeť.
   Unikání před smrtí á la Poirot.
   Zajetí smrti á la Dařbuján a Pandrhola.
+  Všechna NPC, které hráč musí pro splnění tohoto questu zabít, jsou tradičním způsobem nesmrtelná, bude potřeba je zabít nějak jinak, než standardní cestou v boji. Nebo pro to alespoň bude nutné splnit nějaké předpoklady, aby se možnost zabití v boji vůbec hráči otevřela.
 Postup:
-	Hlavní postava (tedy nikoliv ostatní členové skupiny) musí zabít určité konkrétní postavy, které unikají smrti.
+  Hlavní postava (tedy nikoliv ostatní členové skupiny) musí zabít určité konkrétní postavy, které unikají smrti.
 Odměna: 
   Ke skupině se přidá nový člen - personifikace smrti.
 Poznámka:
+  Patrně by bylo možné quest celkem libovolně natahovat tím, že by hráč musel sbírat informace z nejrůznějších obskurních zdrojů - ve starých knihovnách, od vyznavačů kultu smrti atp. Zprvu není nutné, aby hráč vůbec věděl, že zadavatel tohoto úkolu je přímo smrt a může se to dozvědět až těsně před tím, než zabije první oběť.
