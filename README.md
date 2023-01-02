@@ -1,11 +1,21 @@
 # Dungeon
 
-Framework for 2D adventure/RPG games mad made using TDD approach.
+Framework for a 2D adventure/RPG game mad made using TDD approach.
 Character/gameplay rules based on GURPS 4e.
 
 > Only the parts of the original rules that are actually useful for the game will be implemented!
 
 [Coding Guidelines](Docs/codingGuidelines.md)
+
+## Theme
+
+The idea is that the framework itself should be as general as possible, but since it is meant to be actually used for creating a game, we cannot make it too general. The game will have some specifics to it and the framework has to support them. There are many sources of inspiration for the game, mainly among games books and movies. Listing just a few of the games that have inspired me, there are such as classics as Fallout 1/2, Planescape: Torment, TES (mainly Daggerfall and Skyrim), Might and Magic, Dragon Age, Dungeon Master 2, and others.
+
+- Fantasy Setting
+- Open World
+- Hex Grid
+- Isometric 3D
+
 
 ## General Game Progression
 
