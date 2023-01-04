@@ -199,6 +199,9 @@ public class GameLogicTests
     [TestMethod]
     public void Door_CanBeOpen_AndBecomeTraversable()
     {
-
+        //character starts in an enclosed room with closed door
+        //walks towards the door
+        //opens it
+        //leaves the room
     }
 }
