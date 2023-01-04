@@ -195,4 +195,10 @@ public class GameLogicTests
 
         Assert.AreEqual(20, pc.Health);
     }
+
+    [TestMethod]
+    public void Door_CanBeOpen_AndBecomeTraversable()
+    {
+
+    }
 }
