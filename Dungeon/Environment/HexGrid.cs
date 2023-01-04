@@ -69,7 +69,28 @@ namespace Dungeon.Environment
             }
 
             return neighbors;
+        }
 
+        public IEnumerable<Point> GetTraversableNeighbors(int x, int y)
+        {
+            if (!IsInsideGrid(x, y))
+            {
+                throw new ArgumentException($"The provided coordinates {nameof(x)}, {nameof(y)} are outside this grid.\n" +
+                    $"\t{nameof(x)}-coordinate must be between 0 and {Width - 1}.\n" +
+                    $"\t{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
+            }
+
+            List<Point> neighbors = new List<Point>();
+
+            foreach (var m in GetNeighborIndexModifiers(x, y))
+            {
+                if (IsInsideGrid(x + m.X, y + m.Y) && this[x + m.X, y + m.Y].IsTraversable())
+                {
+                    neighbors.Add(new Point(x + m.X, y + m.Y));
+                }
+            }
+
+            return neighbors;
         }
 
         private bool IsInsideGrid(int x, int y)
@@ -99,7 +120,7 @@ namespace Dungeon.Environment
             while (q.Count > 0)
             {
                 var p = q.Dequeue();
-                foreach (var n in GetNeighbors(p.X, p.Y))
+                foreach (var n in GetTraversableNeighbors(p.X, p.Y))
                 {
                     if (distance[p.X, p.Y] < distance[n.X, n.Y])
                     {
