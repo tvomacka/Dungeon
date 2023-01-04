@@ -1,6 +1,7 @@
 ﻿using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
 using Dungeon.Environment;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DungeonTests
 {
@@ -71,6 +72,28 @@ namespace DungeonTests
             var p = string.Join("->", path);
 
             Assert.AreEqual("{X=0,Y=2}->{X=1,Y=1}->{X=2,Y=2}->{X=3,Y=2}", p);
+        }
+
+        [TestMethod]
+        public void HexagonalGrid_PathFromClosedRoom_CannotBeFound()
+        {
+            var grid = new HexGrid<int>(10, 10);
+            for (int i = 0; i < grid.Width; i++)
+            {
+                for (int j = 0; j < grid.Height; j++)
+                {
+                    grid[i, j] = 0;
+                }
+            }
+
+            for(int i = 0; i < 5; i++)
+            {
+                grid[i, 0] = grid[i, 4] = grid[0, i] = grid[4, i] = 1;
+            }
+
+            var path = grid.GetPath(2, 2, 7, 2);
+
+            Assert.IsNull(path);
         }
     }
 }
