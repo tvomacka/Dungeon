@@ -22,7 +22,7 @@ The idea is that the framework itself should be as general as possible, but sinc
 1. [Character creation](Docs/characterCreation.md)
 1. [Introduction to the story](Docs/introductionToTheStory.md)
 1. Exploring the environment
-    1. Basic Interactions
+    1. [Basic Interactions](Docs/basicInteractions.md)
     1. Combat
     1. [Dialogue](Docs/dialogue.md)
 1. Acquiring first quests
