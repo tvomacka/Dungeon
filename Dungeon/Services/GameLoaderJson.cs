@@ -6,7 +6,7 @@ using Dungeon.GameLogic.Equipment;
 
 namespace Dungeon.Services;
 
-public class GameLoader
+public class GameLoaderJson
 {
     public static void Load(Game game, string path) 
     {
