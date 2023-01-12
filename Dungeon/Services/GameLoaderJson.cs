@@ -8,30 +8,30 @@ namespace Dungeon.Services;
 
 public class GameLoaderJson
 {
-    public static void Load(Game game, string path) 
+    public static void Load(string path)
     {
         string jsonString = File.ReadAllText(path);
         var json = JsonSerializer.Deserialize<JsonObject>(jsonString);
 
         if (json["Characters"] != null)
         {
-            game.Characters = JsonSerializer.Deserialize<NonPlayerCharacter[]>(json["Characters"]).ToList<NonPlayerCharacter>();
+            Game.Instance.Characters = JsonSerializer.Deserialize<NonPlayerCharacter[]>(json["Characters"]).ToList<NonPlayerCharacter>();
         }
         if (json["Dialogues"] != null)
         {
-            game.Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
+            Game.Instance.Dialogues = JsonSerializer.Deserialize<Dialogue[]>(json["Dialogues"]).ToList<Dialogue>();
         }
         if (json["Party"] != null)
         {
-            game.Party = JsonSerializer.Deserialize<Party>(json["Party"]);
+            Game.Instance.Party = JsonSerializer.Deserialize<Party>(json["Party"]);
         }
         if (json["Items"] != null)
         {
-            game.Items = JsonSerializer.Deserialize<Item[]>(json["Items"]).ToList<Item>();
+            Game.Instance.Items = JsonSerializer.Deserialize<Item[]>(json["Items"]).ToList<Item>();
         }
         if (json["Quests"] != null)
         {
-            game.Quests = JsonSerializer.Deserialize<Quest[]>(json["Quests"]).ToList<Quest>();
+            Game.Instance.Quests = JsonSerializer.Deserialize<Quest[]>(json["Quests"]).ToList<Quest>();
         }
     }
 }

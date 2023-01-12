@@ -38,7 +38,7 @@ namespace Dungeon.GameLogic
         public void Load(string path)
         {
             //begin-snippet: GameLoaderJson
-            GameLoaderJson.Load(this, path);
+            GameLoaderJson.Load(path);
             //end-snippet
         }
 
