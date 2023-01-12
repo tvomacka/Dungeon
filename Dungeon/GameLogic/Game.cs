@@ -65,7 +65,7 @@ namespace Dungeon.GameLogic
             }
         }
 
-
+        //begin-snippet: GameInstance
         public static Game Instance
         {
             get
@@ -74,6 +74,7 @@ namespace Dungeon.GameLogic
                 return instance;
             }
         }
+        //end-snippet
 
         public static readonly IInteraction ExploreState = new Explore();
 
