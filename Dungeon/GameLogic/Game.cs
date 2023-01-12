@@ -37,7 +37,9 @@ namespace Dungeon.GameLogic
 
         public void Load(string path)
         {
+            //begin-snippet: GameLoaderJson
             GameLoaderJson.Load(this, path);
+            //end-snippet
         }
 
         public NonPlayerCharacter GetCharacter(string name)
