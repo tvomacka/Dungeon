@@ -6,6 +6,7 @@ Character/gameplay rules based on GURPS 4e.
 > Only the parts of the original rules that are actually useful for the game will be implemented!
 
 [Coding Guidelines](Docs/codingGuidelines.md)
+[Knowledge Base](Docs/knowledgeBase.md)
 
 ## Game Initialization and Loading
 
