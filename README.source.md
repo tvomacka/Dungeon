@@ -1,5 +1,7 @@
 # Dungeon
 
+[![on-push-do-docs](https://github.com/tvomacka/Dungeon/actions/workflows/on-push-do-docs.yml/badge.svg)](https://github.com/tvomacka/Dungeon/actions/workflows/on-push-do-docs.yml)
+
 Framework for a 2D adventure/RPG game mad made using TDD approach.
 Character/gameplay rules based on GURPS 4e.
 
