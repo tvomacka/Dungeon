@@ -204,4 +204,14 @@ public class GameLogicTests
         //opens it
         //leaves the room
     }
+
+    [TestMethod]
+    public void ContainerWithItem_CanBeOpenedAndItemExtracted()
+    {
+        //character starts standing next to a closed chest
+        //open the chest
+        //there is a dagger in the chest
+        //character picks up the dagger
+        //the dagger is now in character's inventory
+    }
 }
