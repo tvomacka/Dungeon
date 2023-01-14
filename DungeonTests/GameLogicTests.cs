@@ -239,6 +239,14 @@ public class GameLogicTests
     }
 
     [TestMethod]
+    public void Character_CannotMove_ThroughNonTraversableSpace()
+    {
+        //character starts on a cell directly enclosed with non-traversable cells
+        //character attempts to move through this wall-in
+        //the movement is not executed
+    }
+
+    [TestMethod]
     public void ContainerWithItem_CanBeOpenedAndItemfExtracted()
     {
         //character starts standing next to a closed chest
