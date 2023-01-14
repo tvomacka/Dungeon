@@ -12,12 +12,12 @@ The idea is that the framework itself should be as general as possible, but sinc
 
 ## General Game Progression
 
-1. [Character creation](Docs/characterCreation.md)
-1. [Introduction to the story](Docs/introductionToTheStory.md)
+1. [Character creation](characterCreation.md)
+1. [Introduction to the story](introductionToTheStory.md)
 1. Exploring the environment
-    1. [Basic Interactions](Docs/basicInteractions.md)
+    1. [Basic Interactions](basicInteractions.md)
     1. Combat
-    1. [Dialogue](Docs/dialogue.md)
+    1. [Dialogue](dialogue.md)
 1. Acquiring first quests
 1. Discovering new/advanced interactions
 1. Shopping

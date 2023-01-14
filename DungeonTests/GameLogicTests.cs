@@ -4,7 +4,6 @@ using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DungeonTests;
 
@@ -207,12 +206,12 @@ public class GameLogicTests
     }
 
     [TestMethod]
-    public void ItemInContainer_CanBePickedUp_AndPutIntoInventory()
+    public void ContainerWithItem_CanBeOpenedAndItemExtracted()
     {
-        //character starts standing next to a chest
+        //character starts standing next to a closed chest
+        //open the chest
         //there is a dagger in the chest
-        //character opens the chest
         //character picks up the dagger
-        //the dagger is in the character's inventory
+        //the dagger is now in character's inventory
     }
 }
