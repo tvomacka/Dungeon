@@ -5,6 +5,7 @@ using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 
 namespace DungeonTests;
@@ -227,6 +228,14 @@ public class GameLogicTests
 
         Assert.AreEqual("Open door", Game.Instance.Environment[4, 2].ToString());
         Assert.AreEqual("{X=5,Y=2}", Game.Instance.Party.Location.ToString());
+    }
+
+    [TestMethod]
+    public void Character_CannotMove_ToNontraversableSpace()
+    {
+        //character starts next to a non-traversable grid cell
+        //character attempts to move to this non-traversable cell
+        //the movement is not executed
     }
 
     [TestMethod]
