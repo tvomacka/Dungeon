@@ -1,9 +1,11 @@
 using ApprovalTests.Reporters;
 using ApprovalTests.Reporters.Windows;
+using Dungeon.Environment;
 using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
+using System.Drawing;
 
 namespace DungeonTests;
 
@@ -199,14 +201,36 @@ public class GameLogicTests
     [TestMethod]
     public void Door_CanBeOpen_AndBecomeTraversable()
     {
-        //character starts in an enclosed room with closed door
-        //walks towards the door
-        //opens it
-        //leaves the room
+        var grid = new HexGrid<ILocation>(10, 10);
+        for (int i = 0; i < grid.Width; i++)
+        {
+            for (int j = 0; j < grid.Height; j++)
+            {
+                grid[i, j] = new GridCell { Traversable = true };
+            }
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            (grid[i, 0] as GridCell).Traversable = false;
+            (grid[i, 4] as GridCell).Traversable = false;
+            (grid[0, i] as GridCell).Traversable = false;
+            (grid[4, i] as GridCell).Traversable = false;
+        }
+
+        Game.Instance.Environment = grid;
+        Game.Instance.Party.Location = new Point(2, 2);
+        Game.Instance.Environment[4, 2] = new Door(false);
+        Game.Instance.Party.MoveTo(3, 2);
+        (Game.Instance.Environment[4, 2] as Door).Open();
+        Game.Instance.Party.MoveTo(5, 2);
+
+        Assert.AreEqual("Open door", Game.Instance.Environment[4, 2].ToString());
+        Assert.AreEqual("{X=5,Y=2}", Game.Instance.Party.Location.ToString());
     }
 
     [TestMethod]
-    public void ContainerWithItem_CanBeOpenedAndItemExtracted()
+    public void ContainerWithItem_CanBeOpenedAndItemfExtracted()
     {
         //character starts standing next to a closed chest
         //open the chest

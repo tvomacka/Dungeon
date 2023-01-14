@@ -1,4 +1,5 @@
-﻿using Dungeon.GameLogic.Dialogues;
+﻿using Dungeon.Environment;
+using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
 using Dungeon.Services;
@@ -9,6 +10,7 @@ namespace Dungeon.GameLogic
     {
         private static Game instance = null;
 
+        public HexGrid<ILocation> Environment { get; set; }
         public List<NonPlayerCharacter> Characters { get; set; }
         public List<Dialogue> Dialogues { get; set; }
         public Party Party { get; set; }
