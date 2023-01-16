@@ -3,9 +3,14 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
+    <PackageId>Dungeon</PackageId>
+    <Version>0.0.0</Version>
+    <Authors>vomicz</Authors>
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageDescription>Toolkit for RPG games.</PackageDescription>
+    <RepositoryUrl>https://github.com/tvomacka/Dungeon</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
