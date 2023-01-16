@@ -1,4 +1,6 @@
-﻿namespace Dungeon.GameLogic;
+﻿using System.Drawing;
+
+namespace Dungeon.GameLogic;
 
 public class Party
 {

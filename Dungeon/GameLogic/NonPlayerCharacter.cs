@@ -1,4 +1,5 @@
 ﻿using Dungeon.GameLogic.Dialogues;
+using System.Drawing;
 
 namespace Dungeon.GameLogic;
 
