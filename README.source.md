@@ -1,6 +1,7 @@
 # Dungeon
 
 [![on-push-do-docs](https://github.com/tvomacka/Dungeon/actions/workflows/on-push-do-docs.yml/badge.svg)](https://github.com/tvomacka/Dungeon/actions/workflows/on-push-do-docs.yml)
+[![Test, Release and Deploy to NuGet](https://github.com/tvomacka/Dungeon/actions/workflows/on-version-test-release-depploy.yml/badge.svg)](https://github.com/tvomacka/Dungeon/actions/workflows/on-version-test-release-depploy.yml)
 
 Framework for a 2D adventure/RPG game made using TDD approach.
 Character/gameplay rules based on GURPS 4e.
