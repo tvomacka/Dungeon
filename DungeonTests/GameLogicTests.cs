@@ -5,7 +5,6 @@ using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
 using Dungeon.GameLogic.Equipment;
 using Dungeon.GameLogic.Exceptions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 
 namespace DungeonTests;
@@ -28,10 +27,10 @@ public class GameLogicTests
     public void GameReset_Clears_AllData()
     {
         ResetGame();
-        Assert.AreEqual(0, Game.Instance.Characters.Count());
-        Assert.AreEqual(0, Game.Instance.Quests.Count());
-        Assert.AreEqual(0, Game.Instance.Party.Members.Count());
-        Assert.AreEqual(0, Game.Instance.Items.Count());
+        Assert.AreEqual(0, Game.Instance.Characters.Count);
+        Assert.AreEqual(0, Game.Instance.Quests.Count);
+        Assert.AreEqual(0, Game.Instance.Party.Members.Count);
+        Assert.AreEqual(0, Game.Instance.Items.Count);
         Assert.AreEqual(Game.ExploreState, Game.Instance.State);
     }
 
