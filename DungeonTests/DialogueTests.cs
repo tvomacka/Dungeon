@@ -3,7 +3,6 @@ using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
 using Dungeon.GameLogic;
 using Dungeon.GameLogic.Dialogues;
-using System.Collections.Generic;
 
 namespace DungeonTests;
 
@@ -20,7 +19,7 @@ public class DialogueTests
         var npc = Game.Instance.GetCharacter("QuestNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
+        Game.Instance.State = ((Dialogue)Game.Instance.State).ChooseOption(0);
 
         Assert.AreEqual(1, Game.Instance.Party.AssignedQuests.Count);
     }
@@ -36,7 +35,7 @@ public class DialogueTests
         var npc = Game.Instance.GetCharacter("QuestNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(1);
+        Game.Instance.State = ((Dialogue)Game.Instance.State).ChooseOption(1);
 
         Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count);
     }
@@ -51,10 +50,10 @@ public class DialogueTests
         var npc = Game.Instance.GetCharacter("DialogueNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        states.Add((Game.Instance.State as Dialogue).GetCurrentState().ToString());
-        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
-        states.Add((Game.Instance.State as Dialogue).GetCurrentState().ToString());
-        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(0);
+        states.Add(((Dialogue)Game.Instance.State).GetCurrentState().ToString());
+        Game.Instance.State = ((Dialogue)Game.Instance.State).ChooseOption(0);
+        states.Add(((Dialogue)Game.Instance.State).GetCurrentState().ToString());
+        Game.Instance.State = ((Dialogue)Game.Instance.State).ChooseOption(0);
 
         Approvals.VerifyAll(states, "");
     }
@@ -66,7 +65,7 @@ public class DialogueTests
 
         var npc = Game.Instance.GetCharacter("DialogueNPC");
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        Approvals.VerifyAll((Game.Instance.State as Dialogue).GetFilteredOptions(), "");
+        Approvals.VerifyAll(((Dialogue)Game.Instance.State).GetFilteredOptions(), "");
     }
 
     [TestMethod]
@@ -77,7 +76,7 @@ public class DialogueTests
 
         var npc = Game.Instance.GetCharacter("DialogueNPC");
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        Approvals.VerifyAll((Game.Instance.State as Dialogue).GetFilteredOptions(), "");
+        Approvals.VerifyAll(((Dialogue)Game.Instance.State).GetFilteredOptions(), "");
     }
 
     [TestMethod]
@@ -88,7 +87,7 @@ public class DialogueTests
 
         var npc = Game.Instance.GetCharacter("DialogueNPC");
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        (Game.Instance.State as Dialogue).ChooseOption(2);
+        ((Dialogue)Game.Instance.State).ChooseOption(2);
     }
 
     [TestMethod]
@@ -115,7 +114,7 @@ public class DialogueTests
         Game.Instance.Party.AssignedQuests.AddRange(new List<int> { 2, 7, 11});
 
         var assignedQuests = DialogueCondition.GetSubjectValue(null, "AssignedQuests");
-        var quests = String.Join(",", assignedQuests as IEnumerable<int>);
+        var quests = string.Join(",", assignedQuests as IEnumerable<int> ?? Array.Empty<int>());
 
         Assert.AreEqual("2,7,11", quests);
     }
