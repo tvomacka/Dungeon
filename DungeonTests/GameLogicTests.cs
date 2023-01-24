@@ -107,7 +107,7 @@ public class GameLogicTests
 
     [TestMethod]
     [ExpectedException(typeof(GameException))]
-    public void Item_CannotBeEquiped_ByACharacterWithoutRequiredStrength()
+    public void Item_CannotBeEquipped_ByACharacterWithoutRequiredStrength()
     {
         var pc = new PlayerCharacter() { Strength = 10 };
         var hammer = new Weapon() { Id = 1, Name = "Hammer", MinStrength = 12 };
