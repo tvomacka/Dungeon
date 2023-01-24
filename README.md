@@ -49,3 +49,8 @@ There are some simple game setups stored in the [Game Samples Folder](DungeonTes
 
 - [ ] [Dialogue Condition](DungeonTests/TestResources/Games/dialogueCondition.json) Contains a simple dialog with three possible answers, one of which is disabled because the *John Smith* character's intelligence is not greater than the requiered value.
 - [ ] [Fetch Quest](DungeonTests/TestResources/Games/fetchQuest.json) Is a game instance in which the party has a quest to bring an item to a NPC. After this item is picked up in the inventory, the NPC dialogue will enable an option to give this item to the NPC and therefore complete the quest. After choosing this dialogue option, the quest is completed, the item is removed from character's inventory and experience points are assigned.
+
+## Credits and Honorable Mentions
+
+- [ ] One of the big reasons to create this project was to learn the test-driven product development as taught by Llewelyn Falco.
+- [ ] Refactoring of the code was done mainly with [ReSharper](https://jb.gg/OpenSourceSupport).
