@@ -95,7 +95,7 @@ public class GameLogicTests
     }
 
     [TestMethod]
-    public void Item_CanBeEquiped_FromInventory()
+    public void Item_CanBeEquipped_FromInventory()
     {
         var pc = new PlayerCharacter();
         var dagger = new Weapon() { Id = 0, Name = "Dagger"};
