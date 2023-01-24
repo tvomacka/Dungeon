@@ -6,10 +6,7 @@ public class Party
 {
     public Point Location { get; set; }
     public List<PlayerCharacter> Members { get; set; }
-    public PlayerCharacter this[int index]
-    {
-        get { return Members[index]; }
-    }
+    public PlayerCharacter this[int index] => Members[index];
     public List<int> AssignedQuests { get; set; }
 
     public Party()
