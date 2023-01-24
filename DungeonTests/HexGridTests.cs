@@ -1,7 +1,6 @@
 ﻿using ApprovalTests.Reporters.Windows;
 using ApprovalTests.Reporters;
 using Dungeon.Environment;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DungeonTests
 {
@@ -79,15 +78,15 @@ namespace DungeonTests
         public void HexagonalGrid_PathFromClosedRoom_CannotBeFound()
         {
             var grid = new HexGrid<GridCell>(10, 10);
-            for (int i = 0; i < grid.Width; i++)
+            for (var i = 0; i < grid.Width; i++)
             {
-                for (int j = 0; j < grid.Height; j++)
+                for (var j = 0; j < grid.Height; j++)
                 {
                     grid[i, j] = new GridCell { Traversable = true };
                 }
             }
 
-            for(int i = 0; i < 5; i++)
+            for(var i = 0; i < 5; i++)
             {
                 grid[i, 0].Traversable = false;
                 grid[i, 4].Traversable = false;
