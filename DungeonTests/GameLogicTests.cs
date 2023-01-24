@@ -45,7 +45,7 @@ public class GameLogicTests
     public void PartyCharacter_CanBeLoadedFromFile()
     {
         LoadTestGame("party.json");
-        Assert.AreEqual(1, Game.Instance.Party.Members.Count());
+        Assert.AreEqual(1, Game.Instance.Party.Members.Count);
     }
 
     [TestMethod]
