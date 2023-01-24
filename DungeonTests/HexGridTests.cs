@@ -60,9 +60,9 @@ namespace DungeonTests
         public void HexagonalGrid_SimplePath_CanBeFound()
         {
             var grid = new HexGrid<GridCell>(5, 5);
-            for (int i = 0; i < grid.Width; i++)
+            for (var i = 0; i < grid.Width; i++)
             {
-                for (int j = 0; j < grid.Height; j++)
+                for (var j = 0; j < grid.Height; j++)
                 {
                     grid[i, j] = new GridCell() { Traversable = true };
                 }
