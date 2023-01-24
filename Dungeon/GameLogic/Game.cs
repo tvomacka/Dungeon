@@ -8,7 +8,7 @@ namespace Dungeon.GameLogic
 {
     public class Game
     {
-        private static Game instance = null;
+        private static Game instance;
 
         public HexGrid<ILocation> Environment { get; set; }
         public List<NonPlayerCharacter> Characters { get; set; }
@@ -55,7 +55,8 @@ namespace Dungeon.GameLogic
                 throw new GameException($"Trying to pick up an item with invalid id: {itemId}. There are currently {Items?.Count} items registered in the game.");
             if (characterId < 0 || Party.Members?.Count <= characterId)
                 throw new GameException($"You are trying to give item {itemId} to a character with invalid id {characterId}. There are currently {Party.Members?.Count} characters in the party.");
-            
+
+            if (Items == null) return;
             var item = Items[itemId];
             var character = Party[characterId];
 
