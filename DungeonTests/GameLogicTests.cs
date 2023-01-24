@@ -135,7 +135,7 @@ public class GameLogicTests
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
 
-        Assert.AreEqual(1, (Game.Instance.State as Dialogue).GetFilteredOptions().Count());
+        Assert.AreEqual(1, ((Dialogue)Game.Instance.State).GetFilteredOptions().Count());
     }
 
     [TestMethod]
@@ -158,10 +158,10 @@ public class GameLogicTests
         var npc = Game.Instance.GetCharacter("QuestNPC");
         Game.Instance.Party.MoveTo(npc.Location.X - 1, npc.Location.Y);
         Game.Instance.State = Game.Instance.DialogueWith(npc);
-        Game.Instance.State = (Game.Instance.State as Dialogue).ChooseOption(1);
+        Game.Instance.State = ((Dialogue)Game.Instance.State).ChooseOption(1);
 
         Assert.IsFalse(Game.Instance.Party[0].Inventory.Contains(Game.Instance.Items[0]));
-        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count());
+        Assert.AreEqual(0, Game.Instance.Party.AssignedQuests.Count);
         Assert.AreEqual(100, Game.Instance.Party[0].XP);
     }
 
@@ -202,27 +202,27 @@ public class GameLogicTests
     public void Door_CanBeOpen_AndBecomeTraversable()
     {
         var grid = new HexGrid<ILocation>(10, 10);
-        for (int i = 0; i < grid.Width; i++)
+        for (var i = 0; i < grid.Width; i++)
         {
-            for (int j = 0; j < grid.Height; j++)
+            for (var j = 0; j < grid.Height; j++)
             {
                 grid[i, j] = new GridCell { Traversable = true };
             }
         }
 
-        for (int i = 0; i < 5; i++)
+        for (var i = 0; i < 5; i++)
         {
-            (grid[i, 0] as GridCell).Traversable = false;
-            (grid[i, 4] as GridCell).Traversable = false;
-            (grid[0, i] as GridCell).Traversable = false;
-            (grid[4, i] as GridCell).Traversable = false;
+            ((GridCell)grid[i, 0]).Traversable = false;
+            ((GridCell)grid[i, 4]).Traversable = false;
+            ((GridCell)grid[0, i]).Traversable = false;
+            ((GridCell)grid[4, i]).Traversable = false;
         }
 
         Game.Instance.Environment = grid;
         Game.Instance.Party.Location = new Point(2, 2);
         Game.Instance.Environment[4, 2] = new Door(false);
         Game.Instance.Party.MoveTo(3, 2);
-        (Game.Instance.Environment[4, 2] as Door).Open();
+        ((Door)Game.Instance.Environment[4, 2]).Open();
         Game.Instance.Party.MoveTo(5, 2);
 
         Assert.AreEqual("Open door", Game.Instance.Environment[4, 2].ToString());
@@ -250,7 +250,7 @@ public class GameLogicTests
     }
 
     [TestMethod]
-    public void ContainerWithItem_CanBeOpenedAndItemfExtracted()
+    public void ContainerWithItem_CanBeOpenedAndItemExtracted()
     {
         //character starts standing next to a closed chest
         //open the chest
