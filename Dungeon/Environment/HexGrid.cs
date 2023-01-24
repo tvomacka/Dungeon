@@ -4,35 +4,29 @@ namespace Dungeon.Environment;
 
 public class HexGrid<T> where T : ILocation
 {
-    private readonly IEnumerable<Point> XEvenNeighborModifiers = new List<Point>() {
-        new Point(-1, -1),
-        new Point(-1, 0),
-        new Point(0, 1),
-        new Point(1, 0),
-        new Point(1, -1),
-        new Point(0, -1)
+    private readonly IEnumerable<Point> xEvenNeighborModifiers = new List<Point>() {
+        new(-1, -1),
+        new(-1, 0),
+        new(0, 1),
+        new(1, 0),
+        new(1, -1),
+        new(0, -1)
     };
 
-    private readonly IEnumerable<Point> XOddNeighborModifiers = new List<Point>() {
-        new Point(-1, 0),
-        new Point(-1, 1),
-        new Point(0, 1),
-        new Point(1, 1),
-        new Point(1, 0),
-        new Point(0, -1)
+    private readonly IEnumerable<Point> xOddNeighborModifiers = new List<Point>() {
+        new(-1, 0),
+        new(-1, 1),
+        new(0, 1),
+        new(1, 1),
+        new(1, 0),
+        new(0, -1)
     };
 
-    private T[,] cells;
+    private readonly T[,] cells;
 
-    public int Width
-    {
-        get => cells.GetLength(0);
-    }
+    public int Width => cells.GetLength(0);
 
-    public int Height
-    {
-        get => cells.GetLength(1);
-    }
+    public int Height => cells.GetLength(1);
 
     public T this[int x, int y]
     {
@@ -54,9 +48,9 @@ public class HexGrid<T> where T : ILocation
                 $"\t{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
         }
 
-        List<Point> neighbors = new List<Point>();
+        List<Point> neighbors = new();
 
-        foreach (var m in GetNeighborIndexModifiers(x, y))
+        foreach (var m in GetNeighborIndexModifiers(x))
         {
             if (IsInsideGrid(x + m.X, y + m.Y))
             {
@@ -76,9 +70,9 @@ public class HexGrid<T> where T : ILocation
                 $"\t{nameof(y)}-coordinate must be between 0 and {Height - 1}.");
         }
 
-        List<Point> neighbors = new List<Point>();
+        List<Point> neighbors = new();
 
-        foreach (var m in GetNeighborIndexModifiers(x, y))
+        foreach (var m in GetNeighborIndexModifiers(x))
         {
             if (IsInsideGrid(x + m.X, y + m.Y) && this[x + m.X, y + m.Y].IsTraversable())
             {
@@ -94,16 +88,9 @@ public class HexGrid<T> where T : ILocation
         return 0 <= x && x < Width && 0 <= y && y < Height;
     }
 
-    private IEnumerable<Point> GetNeighborIndexModifiers(int x, int y)
+    private IEnumerable<Point> GetNeighborIndexModifiers(int x)
     {
-        if (x % 2 == 0)
-        {
-            return XEvenNeighborModifiers;
-        }
-        else
-        {
-            return XOddNeighborModifiers;
-        }
+        return x % 2 == 0 ? xEvenNeighborModifiers : xOddNeighborModifiers;
     }
 
     public List<Point> GetPath(int startX, int startY, int destX, int destY)
