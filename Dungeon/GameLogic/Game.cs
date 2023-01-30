@@ -11,20 +11,16 @@ namespace Dungeon.GameLogic
         private static Game instance;
 
         public HexGrid<ILocation> Environment { get; set; }
-        public List<NonPlayerCharacter> Characters { get; set; }
+        public List<NonPlayerCharacter> Characters { get; set; } = new();
         public List<Dialogue> Dialogues { get; set; }
-        public Party Party { get; set; }
-        public List<Quest> Quests { get; set; }
+        public Party Party { get; set; } = new();
+        public List<Quest> Quests { get; set; } = new();
 
-        public List<Item> Items { get; set; }
+        public List<Item> Items { get; set; } = new();
         public IInteraction State { get; set; }
 
         private Game()
         {
-            Characters = new();
-            Quests = new();
-            Party = new();
-            Items = new();
             State = ExploreState;
         }
 
@@ -32,6 +28,7 @@ namespace Dungeon.GameLogic
         {
             return npc.StartDialogue();
         }
+
         public void Reset()
         {
             instance = new Game();
