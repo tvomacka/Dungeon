@@ -15,11 +15,26 @@ Character/gameplay rules based on GURPS 4e.
 
 The instance of the game is a singleton, that can be accessed using the property:
 
-snippet: GameInstance
+<!-- snippet: GameInstance -->
+```cs
+public static Game Instance
+{
+    get
+    {
+        instance ??= new Game();
+        return instance;
+    }
+}
+```
+<!-- endSnippet -->
 
 This instance can be filled with custom game data using one of the GameLoader*** classes from the Services namespace.
 
-snippet: GameLoaderJson
+<!-- snippet: GameLoaderJson -->
+```cs
+GameLoaderJson.Load(path);
+```
+<!-- endSnippet -->
 
 ### Sample Games
 
