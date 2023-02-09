@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/SimonCropp/MarkdownSnippets/master/schema.json",
-  "Convention": "SourceTransform",
-  "ReadOnly": true,
-  "OmitSnippetLinks": true
+  "WriteHeader": false,
+  "ReadOnly": false,
+  "OmitSnippetLinks": true,
+  "Convention": "InPlaceOverwrite"
 }
