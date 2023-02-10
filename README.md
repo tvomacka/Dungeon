@@ -45,5 +45,5 @@ There are some simple game setups stored in the [Game Samples Folder](DungeonTes
 
 ## Credits and Honorable Mentions
 
-- [ ] One of the big reasons to create this project was to learn the test-driven product development as taught by Llewelyn Falco.
-- [ ] Refactoring of the code was done mainly with [ReSharper](https://jb.gg/OpenSourceSupport).
+- [ ] One of the big reasons to create this project was to learn the test-driven product development as taught by [Llewelyn Falco](https://github.com/isidore).
+- [ ] Refactoring the code with [ReSharper](https://jb.gg/OpenSourceSupport).
